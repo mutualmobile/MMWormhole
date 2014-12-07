@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOc-0C-YwJ">
+                                <rect key="frame" x="231" y="398" width="139" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="T2r-8f-rhK"/>
+                                    <constraint firstAttribute="width" constant="139" id="W1b-Ds-RSA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Button Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRn-aq-rnP">
+                                <rect key="frame" x="225" y="369" width="151" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8cD-ge-52N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ddn-v4-dji">
+                                <rect key="frame" x="227" y="174" width="146" height="29"/>
+                                <segments>
+                                    <segment title="One"/>
+                                    <segment title="Two"/>
+                                    <segment title="Three"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="8n1-Ks-tBv"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Selection Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-Zn-2dv">
+                                <rect key="frame" x="214" y="145" width="172" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5Yg-2F-3lD"/>
+                                    <constraint firstAttribute="width" constant="172" id="ObK-mS-wex"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UOs-Zn-2dv" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0tc-oV-bNf"/>
+                            <constraint firstItem="Ddn-v4-dji" firstAttribute="centerX" secondItem="rRn-aq-rnP" secondAttribute="centerX" id="2EL-QE-Xzb"/>
+                            <constraint firstItem="Ddn-v4-dji" firstAttribute="centerX" secondItem="UOs-Zn-2dv" secondAttribute="centerX" id="5P0-oE-U5u"/>
+                            <constraint firstItem="Ddn-v4-dji" firstAttribute="top" secondItem="UOs-Zn-2dv" secondAttribute="bottom" constant="8" symbolic="YES" id="8hP-0j-30x"/>
+                            <constraint firstItem="aOc-0C-YwJ" firstAttribute="top" secondItem="rRn-aq-rnP" secondAttribute="bottom" constant="8" symbolic="YES" id="QvN-5v-Uho"/>
+                            <constraint firstItem="aOc-0C-YwJ" firstAttribute="centerX" secondItem="rRn-aq-rnP" secondAttribute="centerX" id="TNa-j3-Ykx"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aOc-0C-YwJ" secondAttribute="bottom" constant="181" id="o25-3K-Oua"/>
+                            <constraint firstItem="UOs-Zn-2dv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="125" id="sx3-4Y-THv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="numberLabel" destination="aOc-0C-YwJ" id="HHm-kQ-6Dd"/>
+                        <outlet property="segmentedControl" destination="Ddn-v4-dji" id="n8P-rA-Q5B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

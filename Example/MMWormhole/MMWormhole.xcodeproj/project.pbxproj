@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2679DBC21A33B7C700961787 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DBC11A33B7C700961787 /* main.m */; };
+		2679DBC51A33B7C700961787 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DBC41A33B7C700961787 /* AppDelegate.m */; };
+		2679DBC81A33B7C700961787 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DBC71A33B7C700961787 /* ViewController.m */; };
+		2679DBCB1A33B7C700961787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2679DBC91A33B7C700961787 /* Main.storyboard */; };
+		2679DBCD1A33B7C700961787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2679DBCC1A33B7C700961787 /* Images.xcassets */; };
+		2679DBD01A33B7C700961787 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679DBCE1A33B7C700961787 /* LaunchScreen.xib */; };
+		2679DBDC1A33B7C700961787 /* MMWormholeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DBDB1A33B7C700961787 /* MMWormholeTests.m */; };
+		2679DBF21A33C45200961787 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2679DBF11A33C45200961787 /* WatchKit.framework */; };
+		2679DBF81A33C45200961787 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DBF71A33C45200961787 /* InterfaceController.m */; };
+		2679DBFA1A33C45200961787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2679DBF91A33C45200961787 /* Images.xcassets */; };
+		2679DBFE1A33C45200961787 /* MMWormhole Watch App.app in Resources */ = {isa = PBXBuildFile; fileRef = 2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */; };
+		2679DC051A33C45200961787 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2679DC041A33C45200961787 /* Interface.storyboard */; };
+		2679DC071A33C45200961787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2679DC061A33C45200961787 /* Images.xcassets */; };
+		2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
+		2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2679DBD61A33B7C700961787 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2679DBB41A33B7C700961787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2679DBBB1A33B7C700961787;
+			remoteInfo = MMWormhole;
+		};
+		2679DBFF1A33C45200961787 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2679DBB41A33B7C700961787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2679DBFC1A33C45200961787;
+			remoteInfo = "MMWormhole Watch App";
+		};
+		2679DC081A33C45200961787 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2679DBB41A33B7C700961787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2679DBEE1A33C45200961787;
+			remoteInfo = "MMWormhole WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2679DC111A33C45200961787 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2679DBBC1A33B7C700961787 /* MMWormhole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMWormhole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2679DBC01A33B7C700961787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2679DBC11A33B7C700961787 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2679DBC31A33B7C700961787 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2679DBC41A33B7C700961787 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2679DBC61A33B7C700961787 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2679DBC71A33B7C700961787 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2679DBCA1A33B7C700961787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2679DBCC1A33B7C700961787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2679DBCF1A33B7C700961787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2679DBD51A33B7C700961787 /* MMWormholeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMWormholeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2679DBDA1A33B7C700961787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2679DBDB1A33B7C700961787 /* MMWormholeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWormholeTests.m; sourceTree = "<group>"; };
+		2679DBEA1A33C39600961787 /* MMWormhole.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MMWormhole.entitlements; sourceTree = "<group>"; };
+		2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MMWormhole WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2679DBF11A33C45200961787 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		2679DBF51A33C45200961787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2679DBF61A33C45200961787 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		2679DBF71A33C45200961787 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		2679DBF91A33C45200961787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MMWormhole Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2679DC031A33C45200961787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2679DC041A33C45200961787 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		2679DC061A33C45200961787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2679DC131A33C7E600961787 /* MMWormhole WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MMWormhole WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		2679DC1A1A33D37B00961787 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormhole.h; path = ../../../Source/MMWormhole.h; sourceTree = "<group>"; };
+		2679DC1B1A33D37B00961787 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormhole.m; path = ../../../Source/MMWormhole.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2679DBB91A33B7C700961787 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBD21A33B7C700961787 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBEC1A33C45200961787 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DBF21A33C45200961787 /* WatchKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2679DBB31A33B7C700961787 = {
+			isa = PBXGroup;
+			children = (
+				2679DBBE1A33B7C700961787 /* MMWormhole */,
+				2679DBD81A33B7C700961787 /* MMWormholeTests */,
+				2679DBF31A33C45200961787 /* MMWormhole WatchKit Extension */,
+				2679DC011A33C45200961787 /* MMWormhole Watch App */,
+				2679DBF01A33C45200961787 /* Frameworks */,
+				2679DBBD1A33B7C700961787 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2679DBBD1A33B7C700961787 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBBC1A33B7C700961787 /* MMWormhole.app */,
+				2679DBD51A33B7C700961787 /* MMWormholeTests.xctest */,
+				2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */,
+				2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2679DBBE1A33B7C700961787 /* MMWormhole */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC181A33D36700961787 /* Vendor */,
+				2679DBEA1A33C39600961787 /* MMWormhole.entitlements */,
+				2679DBC31A33B7C700961787 /* AppDelegate.h */,
+				2679DBC41A33B7C700961787 /* AppDelegate.m */,
+				2679DBC61A33B7C700961787 /* ViewController.h */,
+				2679DBC71A33B7C700961787 /* ViewController.m */,
+				2679DBC91A33B7C700961787 /* Main.storyboard */,
+				2679DBCC1A33B7C700961787 /* Images.xcassets */,
+				2679DBCE1A33B7C700961787 /* LaunchScreen.xib */,
+				2679DBBF1A33B7C700961787 /* Supporting Files */,
+			);
+			path = MMWormhole;
+			sourceTree = "<group>";
+		};
+		2679DBBF1A33B7C700961787 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBC01A33B7C700961787 /* Info.plist */,
+				2679DBC11A33B7C700961787 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2679DBD81A33B7C700961787 /* MMWormholeTests */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBDB1A33B7C700961787 /* MMWormholeTests.m */,
+				2679DBD91A33B7C700961787 /* Supporting Files */,
+			);
+			path = MMWormholeTests;
+			sourceTree = "<group>";
+		};
+		2679DBD91A33B7C700961787 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBDA1A33B7C700961787 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2679DBF01A33C45200961787 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBF11A33C45200961787 /* WatchKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2679DBF31A33C45200961787 /* MMWormhole WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC131A33C7E600961787 /* MMWormhole WatchKit Extension.entitlements */,
+				2679DBF61A33C45200961787 /* InterfaceController.h */,
+				2679DBF71A33C45200961787 /* InterfaceController.m */,
+				2679DBF91A33C45200961787 /* Images.xcassets */,
+				2679DBF41A33C45200961787 /* Supporting Files */,
+			);
+			path = "MMWormhole WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		2679DBF41A33C45200961787 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2679DBF51A33C45200961787 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2679DC011A33C45200961787 /* MMWormhole Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC041A33C45200961787 /* Interface.storyboard */,
+				2679DC061A33C45200961787 /* Images.xcassets */,
+				2679DC021A33C45200961787 /* Supporting Files */,
+			);
+			path = "MMWormhole Watch App";
+			sourceTree = "<group>";
+		};
+		2679DC021A33C45200961787 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC031A33C45200961787 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2679DC181A33D36700961787 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC191A33D37400961787 /* MMWormhole */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		2679DC191A33D37400961787 /* MMWormhole */ = {
+			isa = PBXGroup;
+			children = (
+				2679DC1A1A33D37B00961787 /* MMWormhole.h */,
+				2679DC1B1A33D37B00961787 /* MMWormhole.m */,
+			);
+			name = MMWormhole;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2679DBBB1A33B7C700961787 /* MMWormhole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2679DBDF1A33B7C700961787 /* Build configuration list for PBXNativeTarget "MMWormhole" */;
+			buildPhases = (
+				2679DBB81A33B7C700961787 /* Sources */,
+				2679DBB91A33B7C700961787 /* Frameworks */,
+				2679DBBA1A33B7C700961787 /* Resources */,
+				2679DC111A33C45200961787 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2679DC091A33C45200961787 /* PBXTargetDependency */,
+			);
+			name = MMWormhole;
+			productName = MMWormhole;
+			productReference = 2679DBBC1A33B7C700961787 /* MMWormhole.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2679DBD41A33B7C700961787 /* MMWormholeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2679DBE21A33B7C700961787 /* Build configuration list for PBXNativeTarget "MMWormholeTests" */;
+			buildPhases = (
+				2679DBD11A33B7C700961787 /* Sources */,
+				2679DBD21A33B7C700961787 /* Frameworks */,
+				2679DBD31A33B7C700961787 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2679DBD71A33B7C700961787 /* PBXTargetDependency */,
+			);
+			name = MMWormholeTests;
+			productName = MMWormholeTests;
+			productReference = 2679DBD51A33B7C700961787 /* MMWormholeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2679DBEE1A33C45200961787 /* MMWormhole WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2679DC0E1A33C45200961787 /* Build configuration list for PBXNativeTarget "MMWormhole WatchKit Extension" */;
+			buildPhases = (
+				2679DBEB1A33C45200961787 /* Sources */,
+				2679DBEC1A33C45200961787 /* Frameworks */,
+				2679DBED1A33C45200961787 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2679DC001A33C45200961787 /* PBXTargetDependency */,
+			);
+			name = "MMWormhole WatchKit Extension";
+			productName = "MMWormhole WatchKit Extension";
+			productReference = 2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		2679DBFC1A33C45200961787 /* MMWormhole Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2679DC0B1A33C45200961787 /* Build configuration list for PBXNativeTarget "MMWormhole Watch App" */;
+			buildPhases = (
+				2679DBFB1A33C45200961787 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MMWormhole Watch App";
+			productName = "MMWormhole Watch App";
+			productReference = 2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2679DBB41A33B7C700961787 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Conrad Stoll";
+				TargetAttributes = {
+					2679DBBB1A33B7C700961787 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = RLNA7ZSN7E;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					2679DBD41A33B7C700961787 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 2679DBBB1A33B7C700961787;
+					};
+					2679DBEE1A33C45200961787 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = RLNA7ZSN7E;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					2679DBFC1A33C45200961787 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 2679DBB71A33B7C700961787 /* Build configuration list for PBXProject "MMWormhole" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2679DBB31A33B7C700961787;
+			productRefGroup = 2679DBBD1A33B7C700961787 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2679DBBB1A33B7C700961787 /* MMWormhole */,
+				2679DBD41A33B7C700961787 /* MMWormholeTests */,
+				2679DBEE1A33C45200961787 /* MMWormhole WatchKit Extension */,
+				2679DBFC1A33C45200961787 /* MMWormhole Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2679DBBA1A33B7C700961787 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DBCB1A33B7C700961787 /* Main.storyboard in Resources */,
+				2679DBD01A33B7C700961787 /* LaunchScreen.xib in Resources */,
+				2679DBCD1A33B7C700961787 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBD31A33B7C700961787 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBED1A33C45200961787 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DBFE1A33C45200961787 /* MMWormhole Watch App.app in Resources */,
+				2679DBFA1A33C45200961787 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBFB1A33C45200961787 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DC051A33C45200961787 /* Interface.storyboard in Resources */,
+				2679DC071A33C45200961787 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2679DBB81A33B7C700961787 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DBC81A33B7C700961787 /* ViewController.m in Sources */,
+				2679DBC51A33B7C700961787 /* AppDelegate.m in Sources */,
+				2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */,
+				2679DBC21A33B7C700961787 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBD11A33B7C700961787 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DBDC1A33B7C700961787 /* MMWormholeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2679DBEB1A33C45200961787 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */,
+				2679DBF81A33C45200961787 /* InterfaceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2679DBD71A33B7C700961787 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2679DBBB1A33B7C700961787 /* MMWormhole */;
+			targetProxy = 2679DBD61A33B7C700961787 /* PBXContainerItemProxy */;
+		};
+		2679DC001A33C45200961787 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2679DBFC1A33C45200961787 /* MMWormhole Watch App */;
+			targetProxy = 2679DBFF1A33C45200961787 /* PBXContainerItemProxy */;
+		};
+		2679DC091A33C45200961787 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2679DBEE1A33C45200961787 /* MMWormhole WatchKit Extension */;
+			targetProxy = 2679DC081A33C45200961787 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2679DBC91A33B7C700961787 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2679DBCA1A33B7C700961787 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2679DBCE1A33B7C700961787 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2679DBCF1A33B7C700961787 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2679DBDD1A33B7C700961787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2679DBDE1A33B7C700961787 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2679DBE01A33B7C700961787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MMWormhole/MMWormhole.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MMWormhole/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		2679DBE11A33B7C700961787 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MMWormhole/MMWormhole.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MMWormhole/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		2679DBE31A33B7C700961787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MMWormholeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MMWormhole.app/MMWormhole";
+			};
+			name = Debug;
+		};
+		2679DBE41A33B7C700961787 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MMWormholeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MMWormhole.app/MMWormhole";
+			};
+			name = Release;
+		};
+		2679DC0C1A33C45200961787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = MMWormhole_WatchKit_Extension;
+				INFOPLIST_FILE = "MMWormhole Watch App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		2679DC0D1A33C45200961787 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				IBSC_MODULE = MMWormhole_WatchKit_Extension;
+				INFOPLIST_FILE = "MMWormhole Watch App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		2679DC0F1A33C45200961787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "MMWormhole WatchKit Extension/MMWormhole WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MMWormhole WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2679DC101A33C45200961787 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "MMWormhole WatchKit Extension/MMWormhole WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "MMWormhole WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2679DBB71A33B7C700961787 /* Build configuration list for PBXProject "MMWormhole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2679DBDD1A33B7C700961787 /* Debug */,
+				2679DBDE1A33B7C700961787 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2679DBDF1A33B7C700961787 /* Build configuration list for PBXNativeTarget "MMWormhole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2679DBE01A33B7C700961787 /* Debug */,
+				2679DBE11A33B7C700961787 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2679DBE21A33B7C700961787 /* Build configuration list for PBXNativeTarget "MMWormholeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2679DBE31A33B7C700961787 /* Debug */,
+				2679DBE41A33B7C700961787 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2679DC0B1A33C45200961787 /* Build configuration list for PBXNativeTarget "MMWormhole Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2679DC0C1A33C45200961787 /* Debug */,
+				2679DC0D1A33C45200961787 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2679DC0E1A33C45200961787 /* Build configuration list for PBXNativeTarget "MMWormhole WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2679DC0F1A33C45200961787 /* Debug */,
+				2679DC101A33C45200961787 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2679DBB41A33B7C700961787 /* Project object */;
+}
