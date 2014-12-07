@@ -11,3 +11,6 @@ completion:^(id messageObject) {
 }];
 ```
 
+<p align="center">
+<img src="MMWormhole.gif") alt="Example App"/>
+</p>
