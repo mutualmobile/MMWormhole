@@ -6,6 +6,8 @@ MMWormhole creates a wormhole between a containing iOS application and an extens
 <img src="MMWormhole.gif") alt="Example App"/>
 </p>
 
+## Example
+
 ```objective-c
 [self.wormhole passMessageObject:@{@"buttonNumber" : @(1)} identifier:@"button"];
 
@@ -15,8 +17,6 @@ completion:^(id messageObject) {
     self.numberLabel.text = [messageObject[@"buttonNumber"] stringValue];
 }];
 ```
-
-Keep reading to learn more about how to start using MMWormhole in your project!
 
 ## Getting Started
 
