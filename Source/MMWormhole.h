@@ -30,7 +30,7 @@
  really the case. The wormhole does have some disadvantages, including the fact that a contract must
  be determined in advance between the app and the extension that defines the interchange format.
  
- A good way to think of the wormhole is a collection of shared mailboxs. An identifier is
+ A good way to think of the wormhole is a collection of shared mailboxes. An identifier is
  essentially a unique mailbox you can send messages to. You know where a message will be delivered
  to because of the identifier you associate with it, but not necessarily when the message will be
  picked up by the recipient. If the app or extension are in the background, they may not receive the
