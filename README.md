@@ -26,6 +26,8 @@ completion:^(id messageObject) {
 - [Configure your App and Extension to support App Groups](https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html)
 - Begin using MMWormhole to pass messages between your App and Extension
 
+Note: The MMWormhole Example app will only work with your shared App Group identifiers and Entitlements and is meant purely for reference
+
 ---
 ##Installing MMWormhole
 <img src="https://cocoapod-badges.herokuapp.com/v/MMWormhole/badge.png"/><br/>
