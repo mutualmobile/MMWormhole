@@ -11,5 +11,9 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.ios.deployment_target = '8.0'
-  s.ios.frameworks = 'UIKit'
+  s.ios.frameworks = 'Foundation'
+  
+  s.subspec 'Core' do |core|
+    core.source_files = 'Source/*.{h,m}'
+  end  
 end
