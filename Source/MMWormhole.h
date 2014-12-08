@@ -15,6 +15,15 @@
  really the case. The wormhole does have some disadvantages, including the fact that a contract must
  be determined in advance between the app and the extension that defines the interchange format.
  
+ A good way to think of the wormhole is a collection of shared mailboxs. An identifier is
+ essentially a unique mailbox you can send messages to. You know where a message will be delivered
+ to because of the identifier you associate with it, but not necessarily when the message will be
+ picked up by the recipient. If the app or extension are in the background, they may not receive the
+ message immediately. By convention, sending messages should be done from one side to another, not
+ necessarily from yourself to yourself. It's also a good practice to check the contents of your
+ mailbox when your app or extension wakes up, in case any messages have been left there while you
+ were away.
+ 
  Passing a message to the wormhole can be inferred as a data transfer package or as a command. In
  both cases, the passed message is written as a JSON object to a .json file named with the
  included identifier. As a data transfer, the contents of written .json file can be queried using
@@ -56,10 +65,17 @@
  This method passes a message object associated with a given identifier. This is the primary means
  of passing information through the wormhole.
  
+ @warning You should avoid situations where you need to pass messages to the same identifier in
+ rapid succession. If a message's contents will be changing rapidly then consider modifying your
+ workflow to write bulk changes without listening on the other side of the wormhole, and then add a
+ listener for a "finished changing" message to let the other side know it's safe to read the 
+ contents of your message.
+ 
  @param messageobject The JSON message object to be passed
  @param identifier The identifier for the message
  */
-- (void)passMessageObject:(id)messageObject identifier:(NSString *)identifier;
+- (void)passMessageObject:(id)messageObject
+               identifier:(NSString *)identifier;
 
 /**
  This method returns the value of a message with a specific identifier as a JSON object.
@@ -76,15 +92,27 @@
 - (void)clearMessageContentsForIdentifier:(NSString *)identifier;
 
 /**
+ This method clears the contents of your optional message directory to give you a clean state.
+ 
+ @warning This method will delete all messages passed to your message directory. Use with care.
+ */
+- (void)clearAllMessageContents;
+
+/**
  This method begins listening for notifications of changes to a message with a specific identifier.
- If notifications are observed then the given completion block will be called along with the actual
+ If notifications are observed then the given listener block will be called along with the actual
  message as a JSON object.
  
+ @discussion This class only supports one listener per message identifier, so calling this method
+ repeatedly for the same identifier will update the listener block that will be called when a
+ message is heard.
+ 
  @param identifier The identifier for the message
- @param completion A completion block called with the JSON messageObject parameter
+ @param listener A listener block called with the JSON messageObject parameter when a notification
+ is observed.
  */
 - (void)listenForMessageWithIdentifier:(NSString *)identifier
-                            completion:(void (^)(id messageObject))completion;
+                              listener:(void (^)(id messageObject))listener;
 
 /**
  This method stops listening for change notifications for a given message identifier.

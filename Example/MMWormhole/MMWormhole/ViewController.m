@@ -35,7 +35,7 @@
     self.numberLabel.text = [number stringValue];
     
     // Become a listener for changes to the wormhole for the button message
-    [self.wormhole listenForMessageWithIdentifier:@"button" completion:^(id messageObject) {
+    [self.wormhole listenForMessageWithIdentifier:@"button" listener:^(id messageObject) {
         // The number is identified with the buttonNumber key in the message object
         NSNumber *number = [messageObject valueForKey:@"buttonNumber"];
         self.numberLabel.text = [number stringValue];

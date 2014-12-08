@@ -37,7 +37,7 @@
         // Listen for changes to the selection message. The selection message contains a string value
         // identified by the selectionString key. Note that the type of the key is included in the
         // name of the key.
-        [self.wormhole listenForMessageWithIdentifier:@"selection" completion:^(id messageObject) {
+        [self.wormhole listenForMessageWithIdentifier:@"selection" listener:^(id messageObject) {
             NSString *string = [messageObject valueForKey:@"selectionString"];
             
             if (string != nil) {

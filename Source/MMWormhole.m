@@ -17,7 +17,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
 @property (nonatomic, copy) NSString *directory;
 @property (nonatomic, strong) NSFileManager *fileManager;
-@property (nonatomic, strong) NSMutableDictionary *observerBlocks;
+@property (nonatomic, strong) NSMutableDictionary *listenerBlocks;
 
 @end
 
@@ -33,9 +33,12 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
         _fileManager = [[NSFileManager alloc] init];
-        _observerBlocks = [NSMutableDictionary dictionary];
+        _listenerBlocks = [NSMutableDictionary dictionary];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMessageNotification:) name:MMWormholeNotificationName object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveMessageNotification:)
+                                                     name:MMWormholeNotificationName
+                                                   object:nil];
     }
 
     return self;
@@ -81,7 +84,9 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return;
     }
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:messageObject options:NSJSONWritingPrettyPrinted error:NULL];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:messageObject
+                                                   options:NSJSONWritingPrettyPrinted
+                                                     error:NULL];
     
     if (data == nil) {
         return;
@@ -99,7 +104,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return nil;
     }
     
-    NSData *data = [self.fileManager contentsAtPath:[self filePathForIdentifier:identifier]];
+    NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
     
     if (data == nil) {
         return nil;
@@ -128,13 +133,21 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 - (void)registerForNotificationsWithIdentifier:(NSString *)identifier {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFStringRef str = (__bridge CFStringRef)identifier;
-    CFNotificationCenterAddObserver(center, (__bridge const void *)(self), wormholeNotificationCallback, str, NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
+    CFNotificationCenterAddObserver(center,
+                                    (__bridge const void *)(self),
+                                    wormholeNotificationCallback,
+                                    str,
+                                    NULL,
+                                    CFNotificationSuspensionBehaviorDeliverImmediately);
 }
 
 - (void)unregisterForNotificationsWithIdentifier:(NSString *)identifier {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFStringRef str = (__bridge CFStringRef)identifier;
-    CFNotificationCenterRemoveObserver(center, (__bridge const void *)(self), str, NULL);
+    CFNotificationCenterRemoveObserver(center,
+                                       (__bridge const void *)(self),
+                                       str,
+                                       NULL);
 }
 
 void wormholeNotificationCallback(CFNotificationCenterRef center,
@@ -149,18 +162,18 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
-    typedef void (^ListenForMessageCompletionBlock)(id messageObject);
+    typedef void (^MessageListenerBlock)(id messageObject);
     
     NSDictionary *userInfo = notification.userInfo;
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-        ListenForMessageCompletionBlock completionBlock = [self.observerBlocks valueForKey:identifier];
+        MessageListenerBlock listenerBlock = [self.listenerBlocks valueForKey:identifier];
 
-        if (completionBlock) {
+        if (listenerBlock) {
             id messageObject = [self messageObjectFromFileWithIdentifier:identifier];
 
-            completionBlock(messageObject);
+            listenerBlock(messageObject);
         }
     }
 }
@@ -183,17 +196,27 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     [self deleteFileForIdentifier:identifier];
 }
 
+- (void)clearAllMessageContents {
+    if (self.directory != nil) {
+        NSArray *messageFiles = [self.fileManager contentsOfDirectoryAtPath:[self messagePassingDirectoryPath] error:NULL];
+        
+        for (NSString *path in messageFiles) {
+            [self.fileManager removeItemAtPath:path error:NULL];
+        }
+    }
+}
+
 - (void)listenForMessageWithIdentifier:(NSString *)identifier
-                            completion:(void (^)(id messageObject))completion {
+                              listener:(void (^)(id messageObject))listener {
     if (identifier != nil) {
-        [self.observerBlocks setValue:completion forKey:identifier];
+        [self.listenerBlocks setValue:listener forKey:identifier];
         [self registerForNotificationsWithIdentifier:identifier];
     }
 }
 
 - (void)stopListeningForMessageWithIdentifier:(NSString *)identifier {
     if (identifier != nil) {
-        [self.observerBlocks setValue:nil forKey:identifier];
+        [self.listenerBlocks setValue:nil forKey:identifier];
         [self unregisterForNotificationsWithIdentifier:identifier];
     }
 }
