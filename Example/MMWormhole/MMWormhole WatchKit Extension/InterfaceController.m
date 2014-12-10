@@ -10,6 +10,8 @@
 
 #import "MMWormhole.h"
 
+#import "Number.h"
+
 @interface InterfaceController()
 
 @property (nonatomic, strong) MMWormhole *wormhole;
@@ -60,10 +62,14 @@
 }
 
 - (IBAction)didTapThree:(id)sender {
-    [self.wormhole passMessageObject:@{@"buttonNumber" : @(3)} identifier:@"button"];
+    Number *numberObject = [[Number alloc] init];
+    numberObject.number = @(3);
+    
+    [self.wormhole passMessageObject:numberObject identifier:@"buttonObject"];
 }
 
 @end
+
 
 
 

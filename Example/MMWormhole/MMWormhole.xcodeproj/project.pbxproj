@@ -23,6 +23,9 @@
 		2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
 		2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
+		551AA6FC1A38B6B000F18745 /* Number.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6FB1A38B6B000F18745 /* Number.m */; };
+		551AA6FD1A38B6B000F18745 /* Number.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6FB1A38B6B000F18745 /* Number.m */; };
+		551AA6FE1A38B6B000F18745 /* Number.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6FB1A38B6B000F18745 /* Number.m */; };
 		55D935F41A38A4F200AD1A1C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */; };
 		55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D935F91A38A4F200AD1A1C /* TodayViewController.m */; };
 		55D935FC1A38A4F200AD1A1C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D935FB1A38A4F200AD1A1C /* MainInterface.storyboard */; };
@@ -104,6 +107,8 @@
 		2679DC131A33C7E600961787 /* MMWormhole WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MMWormhole WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		2679DC1A1A33D37B00961787 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormhole.h; path = ../../../Source/MMWormhole.h; sourceTree = "<group>"; };
 		2679DC1B1A33D37B00961787 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormhole.m; path = ../../../Source/MMWormhole.m; sourceTree = "<group>"; };
+		551AA6FA1A38B6B000F18745 /* Number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Number.h; sourceTree = "<group>"; };
+		551AA6FB1A38B6B000F18745 /* Number.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Number.m; sourceTree = "<group>"; };
 		55D935F21A38A4F200AD1A1C /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		55D935F71A38A4F200AD1A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +186,7 @@
 				2679DBC41A33B7C700961787 /* AppDelegate.m */,
 				2679DBC61A33B7C700961787 /* ViewController.h */,
 				2679DBC71A33B7C700961787 /* ViewController.m */,
+				551AA6F91A38B69B00F18745 /* Model */,
 				2679DBC91A33B7C700961787 /* Main.storyboard */,
 				2679DBCC1A33B7C700961787 /* Images.xcassets */,
 				2679DBCE1A33B7C700961787 /* LaunchScreen.xib */,
@@ -277,6 +283,15 @@
 				2679DC1B1A33D37B00961787 /* MMWormhole.m */,
 			);
 			name = MMWormhole;
+			sourceTree = "<group>";
+		};
+		551AA6F91A38B69B00F18745 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				551AA6FA1A38B6B000F18745 /* Number.h */,
+				551AA6FB1A38B6B000F18745 /* Number.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		55D935F51A38A4F200AD1A1C /* MMWormhole Today Extension */ = {
@@ -513,6 +528,7 @@
 				2679DBC51A33B7C700961787 /* AppDelegate.m in Sources */,
 				2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */,
 				2679DBC21A33B7C700961787 /* main.m in Sources */,
+				551AA6FC1A38B6B000F18745 /* Number.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */,
+				551AA6FD1A38B6B000F18745 /* Number.m in Sources */,
 				2679DBF81A33C45200961787 /* InterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D936041A38A5C000AD1A1C /* MMWormhole.m in Sources */,
+				551AA6FE1A38B6B000F18745 /* Number.m in Sources */,
 				55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +894,7 @@
 				55D936011A38A4F200AD1A1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

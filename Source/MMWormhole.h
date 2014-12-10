@@ -48,6 +48,12 @@
  may be best to clear the contents of the message after recognizing the command. The
  -clearMessageContentsForIdentifier: method is provided for this purpose.
  
+ MMWormhole also supports passing NSCoding compliant objects as a fallback if you do not want to
+ support JSON messages. Your root object for the message must conform to NSCoding and be fully
+ archivable. That means that an NSArray's contents must also conform to NSCoding. The default for
+ message passing is still JSON, and NSCoding will only be used if the passed message is not valid
+ JSON. Note: as a best practice a message identifier should always be sent the same type of message.
+ 
  A good wormhole includes wormhole aliens who listen for message changes. This class supports 
  CFNotificationCenter Darwin Notifications, which act as a bridge between the containing app and the
  extension. When a message is passed with an identifier, a notification is fired to the Darwin 
@@ -80,20 +86,26 @@
  This method passes a message object associated with a given identifier. This is the primary means
  of passing information through the wormhole.
  
+ @discussion Your message should be a valid JSON object, though optionally it can also be an object
+ that conforms to the NSCoding protocol. NSCoding will only be used if the message is not a valid
+ JSON object.
+ 
  @warning You should avoid situations where you need to pass messages to the same identifier in
  rapid succession. If a message's contents will be changing rapidly then consider modifying your
  workflow to write bulk changes without listening on the other side of the wormhole, and then add a
  listener for a "finished changing" message to let the other side know it's safe to read the 
  contents of your message.
  
- @param messageobject The JSON message object to be passed
+ @param messageobject The message object to be passed
  @param identifier The identifier for the message
  */
 - (void)passMessageObject:(id)messageObject
                identifier:(NSString *)identifier;
 
 /**
- This method returns the value of a message with a specific identifier as a JSON object.
+ This method returns the value of a message with a specific identifier. The message object passed
+ back will be whatever format of message was passed in. The default is a JSON object, but it could
+ also be an unarchived object that conforms to the NSCoding protocol.
  
  @param identifier The identifier for the message
  */
@@ -102,12 +114,16 @@
 /**
  This method clears the contents of a specific message with a given identifier.
  
+ @discussion Both JSON and Archive versions of a message will be cleared.
+ 
  @param identifier The identifier for the message
  */
 - (void)clearMessageContentsForIdentifier:(NSString *)identifier;
 
 /**
  This method clears the contents of your optional message directory to give you a clean state.
+ 
+ @discussion Both JSON and Archive versions of a message will be cleared.
  
  @warning This method will delete all messages passed to your message directory. Use with care.
  */
@@ -116,14 +132,17 @@
 /**
  This method begins listening for notifications of changes to a message with a specific identifier.
  If notifications are observed then the given listener block will be called along with the actual
- message as a JSON object.
+ message object.
+ 
+ The message object passed back will be whatever format of message was passed in. The default is a 
+ JSON object, but it could also be an unarchived object that conforms to the NSCoding protocol.
  
  @discussion This class only supports one listener per message identifier, so calling this method
  repeatedly for the same identifier will update the listener block that will be called when a
  message is heard.
  
  @param identifier The identifier for the message
- @param listener A listener block called with the JSON messageObject parameter when a notification
+ @param listener A listener block called with the messageObject parameter when a notification
  is observed.
  */
 - (void)listenForMessageWithIdentifier:(NSString *)identifier
