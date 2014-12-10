@@ -13,9 +13,8 @@ The wormhole also supports CFNotificationCenter Darwin Notifications in an effor
 ```objective-c
 [self.wormhole passMessageObject:@{@"buttonNumber" : @(1)} identifier:@"button"];
 
-[self.wormhole 
-listenForMessageWithIdentifier:@"button" 
-completion:^(id messageObject) {
+[self.wormhole  listenForMessageWithIdentifier:@"button" 
+  listener:^(id messageObject) {
     self.numberLabel.text = [messageObject[@"buttonNumber"] stringValue];
 }];
 ```
@@ -79,9 +78,8 @@ id messageObject = [self.wormhole messageWithIdentifier:@"messageIdentifier"];
 You can also listen for changes to that message and be notified when that message is updated.
 
 ```objective-c
-[self.wormhole 
- listenForMessageWithIdentifier:@"messageIdentifier" 
- completion:^(id messageObject) {
+[self.wormhole listenForMessageWithIdentifier:@"messageIdentifier" 
+ listener:^(id messageObject) {
     // Do Something
 }];
 
@@ -90,7 +88,7 @@ You can also listen for changes to that message and be notified when that messag
 
 ## Requirements
 
-MMWormhole requires iOS 8 or higher.
+MMWormhole requires iOS 7.0 or higher.
 
 
 ## Credits
