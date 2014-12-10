@@ -10,6 +10,8 @@
 
 #import "MMWormhole.h"
 
+#import "Number.h"
+
 @interface ViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel *numberLabel;
@@ -38,6 +40,14 @@
     [self.wormhole listenForMessageWithIdentifier:@"button" listener:^(id messageObject) {
         // The number is identified with the buttonNumber key in the message object
         NSNumber *number = [messageObject valueForKey:@"buttonNumber"];
+        self.numberLabel.text = [number stringValue];
+    }];
+    
+    // You can also listen for messages that may be passed back as NSCoding compliant objects
+    [self.wormhole listenForMessageWithIdentifier:@"buttonObject" listener:^(id messageObject) {
+        Number *numberObject = messageObject;
+        NSNumber *number = [numberObject number];
+        
         self.numberLabel.text = [number stringValue];
     }];
     

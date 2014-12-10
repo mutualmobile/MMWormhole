@@ -86,7 +86,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     return directoryPath;
 }
 
-- (NSString *)filePathForIdentifier:(NSString *)identifier {
+- (NSString *)jsonFilePathForIdentifier:(NSString *)identifier {
     NSString *directoryPath = [self messagePassingDirectoryPath];
     NSString *fileName = [NSString stringWithFormat:@"%@.json", identifier];
     NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
@@ -94,20 +94,47 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     return filePath;
 }
 
+- (NSString *)archiveFilePathForIdentifier:(NSString *)identifier {
+    NSString *directoryPath = [self messagePassingDirectoryPath];
+    NSString *fileName = [NSString stringWithFormat:@"%@.archive", identifier];
+    NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
+    
+    return filePath;
+}
+
+- (NSData *)encodedDataForMessageObject:(id)messageObject {
+    NSData *data = nil;
+    
+    if ([messageObject conformsToProtocol:@protocol(NSCoding)]) {
+        data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+    }
+    
+    return data;
+}
+
 - (void)writeMessageObject:(id)messageObject toFileWithIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return;
     }
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:messageObject
-                                                   options:NSJSONWritingPrettyPrinted
-                                                     error:NULL];
+    NSData *data = nil;
+    NSString *filePath = nil;
+    
+    if ([NSJSONSerialization isValidJSONObject:messageObject]) {
+        data = [NSJSONSerialization dataWithJSONObject:messageObject
+                                               options:NSJSONWritingPrettyPrinted
+                                                 error:NULL];
+        filePath = [self jsonFilePathForIdentifier:identifier];
+    } else {
+        data = [self encodedDataForMessageObject:messageObject];
+        filePath = [self archiveFilePathForIdentifier:identifier];
+    }
     
     if (data == nil) {
         return;
     }
     
-    BOOL success = [data writeToFile:[self filePathForIdentifier:identifier] atomically:YES];
+    BOOL success = [data writeToFile:filePath atomically:YES];
     
     if (success) {
         [self sendNotificationForMessageWithIdentifier:identifier];
@@ -119,19 +146,32 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return nil;
     }
     
-    NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
+    id messageObject = nil;
+    
+    NSData *data = [NSData dataWithContentsOfFile:[self jsonFilePathForIdentifier:identifier]];
+    
+    if (data != nil) {
+        messageObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+
+        if (messageObject != nil) {
+            return messageObject;
+        }
+    }
+    
+    data = [NSData dataWithContentsOfFile:[self archiveFilePathForIdentifier:identifier]];
     
     if (data == nil) {
         return nil;
     }
     
-    id messageObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
     return messageObject;
 }
 
 - (void)deleteFileForIdentifier:(NSString *)identifier {
-    [self.fileManager removeItemAtPath:[self filePathForIdentifier:identifier] error:NULL];
+    [self.fileManager removeItemAtPath:[self jsonFilePathForIdentifier:identifier] error:NULL];
+    [self.fileManager removeItemAtPath:[self archiveFilePathForIdentifier:identifier] error:NULL];
 }
 
 
