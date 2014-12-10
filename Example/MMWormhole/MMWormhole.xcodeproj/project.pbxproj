@@ -23,6 +23,11 @@
 		2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
 		2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
+		55D935F41A38A4F200AD1A1C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */; };
+		55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D935F91A38A4F200AD1A1C /* TodayViewController.m */; };
+		55D935FC1A38A4F200AD1A1C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D935FB1A38A4F200AD1A1C /* MainInterface.storyboard */; };
+		55D935FF1A38A4F200AD1A1C /* Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 55D935F21A38A4F200AD1A1C /* Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55D936041A38A5C000AD1A1C /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,13 @@
 			remoteGlobalIDString = 2679DBEE1A33C45200961787;
 			remoteInfo = "MMWormhole WatchKit Extension";
 		};
+		55D935FD1A38A4F200AD1A1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2679DBB41A33B7C700961787 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55D935F11A38A4F200AD1A1C;
+			remoteInfo = "Today Extension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +69,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */,
+				55D935FF1A38A4F200AD1A1C /* Today Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +104,13 @@
 		2679DC131A33C7E600961787 /* MMWormhole WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MMWormhole WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		2679DC1A1A33D37B00961787 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormhole.h; path = ../../../Source/MMWormhole.h; sourceTree = "<group>"; };
 		2679DC1B1A33D37B00961787 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormhole.m; path = ../../../Source/MMWormhole.m; sourceTree = "<group>"; };
+		55D935F21A38A4F200AD1A1C /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		55D935F71A38A4F200AD1A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D935F81A38A4F200AD1A1C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		55D935F91A38A4F200AD1A1C /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		55D935FB1A38A4F200AD1A1C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		55D936031A38A58900AD1A1C /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +136,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55D935EF1A38A4F200AD1A1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D935F41A38A4F200AD1A1C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -126,6 +154,7 @@
 				2679DBD81A33B7C700961787 /* MMWormholeTests */,
 				2679DBF31A33C45200961787 /* MMWormhole WatchKit Extension */,
 				2679DC011A33C45200961787 /* MMWormhole Watch App */,
+				55D935F51A38A4F200AD1A1C /* MMWormhole Today Extension */,
 				2679DBF01A33C45200961787 /* Frameworks */,
 				2679DBBD1A33B7C700961787 /* Products */,
 			);
@@ -138,6 +167,7 @@
 				2679DBD51A33B7C700961787 /* MMWormholeTests.xctest */,
 				2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */,
 				2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */,
+				55D935F21A38A4F200AD1A1C /* Today Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				2679DBF11A33C45200961787 /* WatchKit.framework */,
+				55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,6 +279,27 @@
 			name = MMWormhole;
 			sourceTree = "<group>";
 		};
+		55D935F51A38A4F200AD1A1C /* MMWormhole Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				55D936031A38A58900AD1A1C /* Today Extension.entitlements */,
+				55D935F81A38A4F200AD1A1C /* TodayViewController.h */,
+				55D935F91A38A4F200AD1A1C /* TodayViewController.m */,
+				55D935FB1A38A4F200AD1A1C /* MainInterface.storyboard */,
+				55D935F61A38A4F200AD1A1C /* Supporting Files */,
+			);
+			name = "MMWormhole Today Extension";
+			path = "Today Extension";
+			sourceTree = "<group>";
+		};
+		55D935F61A38A4F200AD1A1C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55D935F71A38A4F200AD1A1C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +316,7 @@
 			);
 			dependencies = (
 				2679DC091A33C45200961787 /* PBXTargetDependency */,
+				55D935FE1A38A4F200AD1A1C /* PBXTargetDependency */,
 			);
 			name = MMWormhole;
 			productName = MMWormhole;
@@ -321,6 +374,23 @@
 			productReference = 2679DBFD1A33C45200961787 /* MMWormhole Watch App.app */;
 			productType = "com.apple.product-type.application.watchapp";
 		};
+		55D935F11A38A4F200AD1A1C /* Today Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55D936021A38A4F200AD1A1C /* Build configuration list for PBXNativeTarget "Today Extension" */;
+			buildPhases = (
+				55D935EE1A38A4F200AD1A1C /* Sources */,
+				55D935EF1A38A4F200AD1A1C /* Frameworks */,
+				55D935F01A38A4F200AD1A1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Today Extension";
+			productName = "Today Extension";
+			productReference = 55D935F21A38A4F200AD1A1C /* Today Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -355,6 +425,15 @@
 					2679DBFC1A33C45200961787 = {
 						CreatedOnToolsVersion = 6.2;
 					};
+					55D935F11A38A4F200AD1A1C = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = RLNA7ZSN7E;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = 2679DBB71A33B7C700961787 /* Build configuration list for PBXProject "MMWormhole" */;
@@ -374,6 +453,7 @@
 				2679DBD41A33B7C700961787 /* MMWormholeTests */,
 				2679DBEE1A33C45200961787 /* MMWormhole WatchKit Extension */,
 				2679DBFC1A33C45200961787 /* MMWormhole Watch App */,
+				55D935F11A38A4F200AD1A1C /* Today Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -414,6 +494,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55D935F01A38A4F200AD1A1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D935FC1A38A4F200AD1A1C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -445,6 +533,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55D935EE1A38A4F200AD1A1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D936041A38A5C000AD1A1C /* MMWormhole.m in Sources */,
+				55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -462,6 +559,11 @@
 			isa = PBXTargetDependency;
 			target = 2679DBEE1A33C45200961787 /* MMWormhole WatchKit Extension */;
 			targetProxy = 2679DC081A33C45200961787 /* PBXContainerItemProxy */;
+		};
+		55D935FE1A38A4F200AD1A1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55D935F11A38A4F200AD1A1C /* Today Extension */;
+			targetProxy = 55D935FD1A38A4F200AD1A1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -687,6 +789,38 @@
 			};
 			name = Release;
 		};
+		55D936001A38A4F200AD1A1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		55D936011A38A4F200AD1A1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -734,6 +868,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		55D936021A38A4F200AD1A1C /* Build configuration list for PBXNativeTarget "Today Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D936001A38A4F200AD1A1C /* Debug */,
+				55D936011A38A4F200AD1A1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

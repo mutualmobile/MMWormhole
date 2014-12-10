@@ -26,8 +26,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Button Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRn-aq-rnP">
-                                <rect key="frame" x="225" y="369" width="151" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRn-aq-rnP">
+                                <rect key="frame" x="252" y="369" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8cD-ge-52N"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UOs-Zn-2dv" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0tc-oV-bNf"/>
-                            <constraint firstItem="Ddn-v4-dji" firstAttribute="centerX" secondItem="rRn-aq-rnP" secondAttribute="centerX" id="2EL-QE-Xzb"/>
+                            <constraint firstItem="Ddn-v4-dji" firstAttribute="centerX" secondItem="rRn-aq-rnP" secondAttribute="centerX" constant="-1" id="2EL-QE-Xzb"/>
                             <constraint firstItem="Ddn-v4-dji" firstAttribute="centerX" secondItem="UOs-Zn-2dv" secondAttribute="centerX" id="5P0-oE-U5u"/>
                             <constraint firstItem="Ddn-v4-dji" firstAttribute="top" secondItem="UOs-Zn-2dv" secondAttribute="bottom" constant="8" symbolic="YES" id="8hP-0j-30x"/>
                             <constraint firstItem="aOc-0C-YwJ" firstAttribute="top" secondItem="rRn-aq-rnP" secondAttribute="bottom" constant="8" symbolic="YES" id="QvN-5v-Uho"/>
