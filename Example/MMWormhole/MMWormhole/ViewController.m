@@ -47,8 +47,8 @@
 - (IBAction)segmentedControlValueDidChange:(UISegmentedControl *)segmentedControl {
     NSString *title = [segmentedControl titleForSegmentAtIndex:segmentedControl.selectedSegmentIndex];
     
-    // Pass a message for the selection identifier. The message itself is a JSON object with a single
-    // value and key called selectionString.
+    // Pass a message for the selection identifier. The message itself is a NSCoding compliant object
+    // with a single value and key called selectionString.
     [self.wormhole passMessageObject:@{@"selectionString" : title} identifier:@"selection"];
 }
 
