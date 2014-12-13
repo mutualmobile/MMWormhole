@@ -41,7 +41,7 @@
  
  Passing a message to the wormhole can be inferred as a data transfer package or as a command. In
  both cases, the passed message is archived using NSKeyedArchiver to a .archive file named with the
- included identifier. As a data transfer, the contents of the written .archive file can be queried using
+ included identifier. Once passed, the contents of the written .archive file can be queried using
  the messageWithIdentifier: method. As a command, the simple existence of the message in the shared
  app group should be taken as proof of the command's invocation. The contents of the message then
  become parameters to be evaluated along with the command. Of course, to avoid confusion later, it
