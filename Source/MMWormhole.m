@@ -88,7 +88,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 
 - (NSString *)filePathForIdentifier:(NSString *)identifier {
     NSString *directoryPath = [self messagePassingDirectoryPath];
-    NSString *fileName = [NSString stringWithFormat:@"%@.json", identifier];
+    NSString *fileName = [NSString stringWithFormat:@"%@.archive", identifier];
     NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
     
     return filePath;
@@ -99,9 +99,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return;
     }
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:messageObject
-                                                   options:NSJSONWritingPrettyPrinted
-                                                     error:NULL];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
     
     if (data == nil) {
         return;
@@ -125,7 +123,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return nil;
     }
     
-    id messageObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
     return messageObject;
 }

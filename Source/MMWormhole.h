@@ -40,8 +40,8 @@
  were away.
  
  Passing a message to the wormhole can be inferred as a data transfer package or as a command. In
- both cases, the passed message is written as a JSON object to a .json file named with the
- included identifier. As a data transfer, the contents of written .json file can be queried using
+ both cases, the passed message is archived using NSKeyedArchiver to a .archive file named with the
+ included identifier. As a data transfer, the contents of the written .archive file can be queried using
  the messageWithIdentifier: method. As a command, the simple existence of the message in the shared
  app group should be taken as proof of the command's invocation. The contents of the message then
  become parameters to be evaluated along with the command. Of course, to avoid confusion later, it
@@ -53,8 +53,8 @@
  extension. When a message is passed with an identifier, a notification is fired to the Darwin 
  Notification Center with the given identifier. If you have indicated your interest in the message
  by using the -listenForMessageWithIdentifier:completion: method then your completion block will be
- called when this notification is received, and the contents of the message will be passed as a JSON
- object to the completion block.
+ called when this notification is received, and the contents of the message will be unarchived and
+ passed as an object to the completion block.
  
  It's worth noting that as a best practice to avoid confusing issues or deadlock that messages
  should be passed one way only for a given identifier. The containing app should pass messages to
@@ -86,14 +86,14 @@
  listener for a "finished changing" message to let the other side know it's safe to read the 
  contents of your message.
  
- @param messageobject The JSON message object to be passed
+ @param messageobject The message object to be passed
  @param identifier The identifier for the message
  */
 - (void)passMessageObject:(id)messageObject
                identifier:(NSString *)identifier;
 
 /**
- This method returns the value of a message with a specific identifier as a JSON object.
+ This method returns the value of a message with a specific identifier as an object.
  
  @param identifier The identifier for the message
  */
@@ -116,14 +116,14 @@
 /**
  This method begins listening for notifications of changes to a message with a specific identifier.
  If notifications are observed then the given listener block will be called along with the actual
- message as a JSON object.
+ message object.
  
  @discussion This class only supports one listener per message identifier, so calling this method
  repeatedly for the same identifier will update the listener block that will be called when a
  message is heard.
  
  @param identifier The identifier for the message
- @param listener A listener block called with the JSON messageObject parameter when a notification
+ @param listener A listener block called with the messageObject parameter when a notification
  is observed.
  */
 - (void)listenForMessageWithIdentifier:(NSString *)identifier

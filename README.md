@@ -1,6 +1,6 @@
 # MMWormhole
 
-MMWormhole creates a bridge between an iOS extension and it's containing application. The wormhole is meant to be used to pass data or commands back and forth between the two locations. Messages are passed as JSON files which are written to the application's shared App Group. The effect closely resembles interprocess communication between the app and the extension, though true interprocess communication does not exist between extensions and containing apps. 
+MMWormhole creates a bridge between an iOS extension and it's containing application. The wormhole is meant to be used to pass data or commands back and forth between the two locations. Messages are archived to files which are written to the application's shared App Group. The effect closely resembles interprocess communication between the app and the extension, though true interprocess communication does not exist between extensions and containing apps. 
 
 The wormhole also supports CFNotificationCenter Darwin Notifications in an effort to support realtime change notifications. When a message is passed to the wormhole, interested parties can listen and be notified of these changes on either side of the wormhole. The effect is nearly instant updates on either side when a message is sent through the wormhole.
 
@@ -44,9 +44,9 @@ MMWormhole is designed to make it easy to share very basic information and comma
 
 A good way to think of the wormhole is a collection of shared mailboxes. An identifier is essentially a unique mailbox you can send messages to. You know where a message will be delivered to because of the identifier you associate with it, but not necessarily when the message will be picked up by the recipient. If the app or extension are in the background, they may not receive the message immediately. By convention, sending messages should be done from one side to another, not necessarily from yourself to yourself. It's also a good practice to check the contents of your mailbox when your app or extension wakes up, in case any messages have been left there while you were away.
 
-The decision to use JSON files as the message passing medium also reflects the relatively simple nature of Today Extensions and WatchKit Extensions. For many apps, sharing simple strings or numbers is sufficient to drive the UI of a Widget or Apple Watch app. JSON is also a well understood and easy to use medium, which makes it both easy to debug and easy to use even when the containing app isn't running concurrently with the extension. Messages can be sent and persisted easily as JSON files and read later when the app or extension is woken up later.
+MMWormhole uses NSKeyedArchiver as a serialization medium, so any object that is NScoding compliant can work as a message. For many apps, sharing simple strings or numbers is sufficient to drive the UI of a Widget or Apple Watch app. Messages can be sent and persisted easily as archive files and read later when the app or extension is woken up later.
 
-Using MMWormhole is extremely straightforward. The only real catch is that your app and it's extensions must support shared app groups. The group will be used for writing the JSON files that represent each message. While larger files and structures, including a whole Core Data database, can be shared using App Groups, MMWormhole is designed to use it's own directory simply to pass messages. Because of that, a best practice is to initialize MMWormhole with a directory name that it will use within your app's shared App Group.
+Using MMWormhole is extremely straightforward. The only real catch is that your app and it's extensions must support shared app groups. The group will be used for writing the archive files that represent each message. While larger files and structures, including a whole Core Data database, can be shared using App Groups, MMWormhole is designed to use it's own directory simply to pass messages. Because of that, a best practice is to initialize MMWormhole with a directory name that it will use within your app's shared App Group.
 
 ### Initialization
 
@@ -59,7 +59,7 @@ self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.c
 
 ### Passing a Message
 
-Pass a message with an identifier for the message and a JSON object as the message itself
+Pass a message with an identifier for the message and a NSCoding compliant object as the message itself
 
 ```objective-c
 [self.wormhole passMessageObject:@{@"titleString" : title} 
