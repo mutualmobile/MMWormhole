@@ -424,6 +424,7 @@
 					};
 					2679DBFC1A33C45200961787 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = RLNA7ZSN7E;
 					};
 					55D935F11A38A4F200AD1A1C = {
 						CreatedOnToolsVersion = 6.2;
@@ -730,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -748,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IBSC_MODULE = MMWormhole_WatchKit_Extension;
 				INFOPLIST_FILE = "MMWormhole Watch App/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -876,6 +879,7 @@
 				55D936011A38A4F200AD1A1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

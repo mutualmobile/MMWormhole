@@ -87,6 +87,10 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 }
 
 - (NSString *)filePathForIdentifier:(NSString *)identifier {
+    if (identifier == nil || identifier.length == 0) {
+        return nil;
+    }
+    
     NSString *directoryPath = [self messagePassingDirectoryPath];
     NSString *fileName = [NSString stringWithFormat:@"%@.archive", identifier];
     NSString *filePath = [directoryPath stringByAppendingPathComponent:fileName];
@@ -100,12 +104,13 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     }
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+    NSString *filePath = [self filePathForIdentifier:identifier];
     
-    if (data == nil) {
+    if (data == nil || filePath == nil) {
         return;
     }
     
-    BOOL success = [data writeToFile:[self filePathForIdentifier:identifier] atomically:YES];
+    BOOL success = [data writeToFile:filePath atomically:YES];
     
     if (success) {
         [self sendNotificationForMessageWithIdentifier:identifier];
@@ -181,7 +186,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-        MessageListenerBlock listenerBlock = [self.listenerBlocks valueForKey:identifier];
+        MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
 
         if (listenerBlock) {
             id messageObject = [self messageObjectFromFileWithIdentifier:identifier];
@@ -189,6 +194,10 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
             listenerBlock(messageObject);
         }
     }
+}
+
+- (id)listenerBlockForIdentifier:(NSString *)identifier {
+    return [self.listenerBlocks valueForKey:identifier];
 }
 
 
@@ -213,8 +222,12 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     if (self.directory != nil) {
         NSArray *messageFiles = [self.fileManager contentsOfDirectoryAtPath:[self messagePassingDirectoryPath] error:NULL];
         
+        NSString *directoryPath = [self messagePassingDirectoryPath];
+        
         for (NSString *path in messageFiles) {
-            [self.fileManager removeItemAtPath:path error:NULL];
+            NSString *filePath = [directoryPath stringByAppendingPathComponent:path];
+
+            [self.fileManager removeItemAtPath:filePath error:NULL];
         }
     }
 }
