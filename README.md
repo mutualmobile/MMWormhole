@@ -35,7 +35,7 @@ The MMWormhole Example app will only work with your shared App Group identifiers
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
 ```Ruby
-pod 'MMWormhole', '~> 1.0.0'
+pod 'MMWormhole', '~> 1.1.0'
 ```
 
 ## Overview
