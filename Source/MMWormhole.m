@@ -203,7 +203,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 
 #pragma mark - Public Interface Methods
 
-- (void)passMessageObject:(id)messageObject identifier:(NSString *)identifier {
+- (void)passMessageObject:(id <NSCoding>)messageObject identifier:(NSString *)identifier {
     [self writeMessageObject:messageObject toFileWithIdentifier:identifier];
 }
 
