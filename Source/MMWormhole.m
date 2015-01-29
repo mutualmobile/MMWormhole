@@ -38,9 +38,14 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 
 @implementation MMWormhole
 
-- (id)init {    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+
+- (id)init {
     return nil;
 }
+
+#pragma clang diagnostic pop
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
                                  optionalDirectory:(NSString *)directory {
