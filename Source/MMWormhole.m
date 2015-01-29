@@ -50,6 +50,12 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
                                  optionalDirectory:(NSString *)directory {
     if ((self = [super init])) {
+        
+        if (NO == [[NSFileManager defaultManager] respondsToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)]) {
+            //Protect the user of a crash because of iOSVersion < iOS7
+            return nil;
+        }
+        
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
         _fileManager = [[NSFileManager alloc] init];
