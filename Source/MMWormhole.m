@@ -38,13 +38,24 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 
 @implementation MMWormhole
 
-- (id)init {    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+
+- (id)init {
     return nil;
 }
+
+#pragma clang diagnostic pop
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
                                  optionalDirectory:(NSString *)directory {
     if ((self = [super init])) {
+        
+        if (NO == [[NSFileManager defaultManager] respondsToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)]) {
+            //Protect the user of a crash because of iOSVersion < iOS7
+            return nil;
+        }
+        
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
         _fileManager = [[NSFileManager alloc] init];
@@ -203,7 +214,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 
 #pragma mark - Public Interface Methods
 
-- (void)passMessageObject:(id)messageObject identifier:(NSString *)identifier {
+- (void)passMessageObject:(id <NSCoding>)messageObject identifier:(NSString *)identifier {
     [self writeMessageObject:messageObject toFileWithIdentifier:identifier];
 }
 

@@ -48,9 +48,9 @@
  may be best to clear the contents of the message after recognizing the command. The
  -clearMessageContentsForIdentifier: method is provided for this purpose.
  
- A good wormhole includes wormhole aliens who listen for message changes. This class supports 
+ A good wormhole includes wormhole aliens who listen for message changes. This class supports
  CFNotificationCenter Darwin Notifications, which act as a bridge between the containing app and the
- extension. When a message is passed with an identifier, a notification is fired to the Darwin 
+ extension. When a message is passed with an identifier, a notification is fired to the Darwin
  Notification Center with the given identifier. If you have indicated your interest in the message
  by using the -listenForMessageWithIdentifier:completion: method then your completion block will be
  called when this notification is received, and the contents of the message will be unarchived and
@@ -73,8 +73,9 @@
  @param identifier An application group identifier
  @param directory An optional directory to read/write messages
  */
+
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                                 optionalDirectory:(NSString *)directory;
+                                 optionalDirectory:(NSString *)directory NS_DESIGNATED_INITIALIZER;
 
 /**
  This method passes a message object associated with a given identifier. This is the primary means
@@ -89,7 +90,7 @@
  @param messageobject The message object to be passed
  @param identifier The identifier for the message
  */
-- (void)passMessageObject:(id)messageObject
+- (void)passMessageObject:(id <NSCoding> )messageObject
                identifier:(NSString *)identifier;
 
 /**
