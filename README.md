@@ -13,7 +13,7 @@ The wormhole also supports CFNotificationCenter Darwin Notifications in an effor
 ```objective-c
 [self.wormhole passMessageObject:@{@"buttonNumber" : @(1)} identifier:@"button"];
 
-[self.wormhole  listenForMessageWithIdentifier:@"button" 
+[self.wormhole listenForMessageWithIdentifier:@"button" 
   listener:^(id messageObject) {
     self.numberLabel.text = [messageObject[@"buttonNumber"] stringValue];
 }];
