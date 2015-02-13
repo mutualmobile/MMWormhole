@@ -35,7 +35,7 @@ The MMWormhole Example app will only work with your shared App Group identifiers
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
 ```Ruby
-pod 'MMWormhole', '~> 1.1.0'
+pod 'MMWormhole', '~> 1.1.1'
 ```
 
 ## Overview
@@ -92,7 +92,7 @@ You can think of message passing between apps and extensions sort of like a web 
 
 ## Requirements
 
-MMWormhole requires iOS 7.0 or higher.
+MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
 
 
 ## Credits
