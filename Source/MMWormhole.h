@@ -90,7 +90,7 @@
  @param messageobject The message object to be passed
  @param identifier The identifier for the message
  */
-- (void)passMessageObject:(id <NSCoding> )messageObject
+- (void)passMessageObject:(id <NSCoding>)messageObject
                identifier:(NSString *)identifier;
 
 /**
