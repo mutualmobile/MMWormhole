@@ -1,6 +1,6 @@
 # MMWormhole
 
-MMWormhole creates a bridge between an iOS extension and it's containing application. The wormhole is meant to be used to pass data or commands back and forth between the two locations. Messages are archived to files which are written to the application's shared App Group. The effect closely resembles interprocess communication between the app and the extension, though true interprocess communication does not exist between extensions and containing apps. 
+MMWormhole creates a bridge between an iOS or OS X extension and it's containing application. The wormhole is meant to be used to pass data or commands back and forth between the two locations. Messages are archived to files which are written to the application's shared App Group. The effect closely resembles interprocess communication between the app and the extension, though true interprocess communication does not exist between extensions and containing apps. 
 
 The wormhole also supports CFNotificationCenter Darwin Notifications in an effort to support realtime change notifications. When a message is passed to the wormhole, interested parties can listen and be notified of these changes on either side of the wormhole. The effect is nearly instant updates on either side when a message is sent through the wormhole.
 
@@ -13,7 +13,7 @@ The wormhole also supports CFNotificationCenter Darwin Notifications in an effor
 ```objective-c
 [self.wormhole passMessageObject:@{@"buttonNumber" : @(1)} identifier:@"button"];
 
-[self.wormhole  listenForMessageWithIdentifier:@"button" 
+[self.wormhole listenForMessageWithIdentifier:@"button" 
   listener:^(id messageObject) {
     self.numberLabel.text = [messageObject[@"buttonNumber"] stringValue];
 }];
@@ -35,7 +35,7 @@ The MMWormhole Example app will only work with your shared App Group identifiers
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
 ```Ruby
-pod 'MMWormhole', '~> 1.1.0'
+pod 'MMWormhole', '~> 1.1.1'
 ```
 
 ## Overview
@@ -92,7 +92,7 @@ You can think of message passing between apps and extensions sort of like a web 
 
 ## Requirements
 
-MMWormhole requires iOS 7.0 or higher.
+MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
 
 
 ## Credits

@@ -19,33 +19,36 @@
 
 @implementation InterfaceController
 
-- (instancetype)initWithContext:(id)context {
-    self = [super initWithContext:context];
-    if (self){
-        // Initialize the wormhole
-        self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
-                                                             optionalDirectory:@"wormhole"];
+//
+// Change for compatibility with XCode 6.2 Beta 3
+// The WKInterfaceController method initWithContext: has been deprecated.
+// Please use awakeWithContext: instead.
+//
+- (void)awakeWithContext:(id)context {
+    [super awakeWithContext:context];
+
+    // Initialize the wormhole
+    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
+                                                         optionalDirectory:@"wormhole"];
         
-        // Obtain an initial value for the selection message from the wormhole
-        id messageObject = [self.wormhole messageWithIdentifier:@"selection"];
+    // Obtain an initial value for the selection message from the wormhole
+    id messageObject = [self.wormhole messageWithIdentifier:@"selection"];
+    NSString *string = [messageObject valueForKey:@"selectionString"];
+        
+    if (string != nil) {
+        [self.selectionLabel setText:string];
+    }
+        
+    // Listen for changes to the selection message. The selection message contains a string value
+    // identified by the selectionString key. Note that the type of the key is included in the
+    // name of the key.
+    [self.wormhole listenForMessageWithIdentifier:@"selection" listener:^(id messageObject) {
         NSString *string = [messageObject valueForKey:@"selectionString"];
         
         if (string != nil) {
             [self.selectionLabel setText:string];
         }
-        
-        // Listen for changes to the selection message. The selection message contains a string value
-        // identified by the selectionString key. Note that the type of the key is included in the
-        // name of the key.
-        [self.wormhole listenForMessageWithIdentifier:@"selection" listener:^(id messageObject) {
-            NSString *string = [messageObject valueForKey:@"selectionString"];
-            
-            if (string != nil) {
-                [self.selectionLabel setText:string];
-            }
-        }];
-    }
-    return self;
+    }];
 }
 
 
