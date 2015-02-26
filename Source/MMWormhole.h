@@ -139,5 +139,5 @@
  */
 - (void)stopListeningForMessageWithIdentifier:(NSString *)identifier;
 
-- (void)sendNotificationForMessageWithIdentifier:(NSString *)identifier;
++ (void)sendNotificationForMessageWithIdentifier:(NSString *)identifier;
 @end

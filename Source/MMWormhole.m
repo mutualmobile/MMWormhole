@@ -141,6 +141,10 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 #pragma mark - Private Notification Methods
 
 - (void)sendNotificationForMessageWithIdentifier:(NSString *)identifier {
+    [[self class] sendNotificationForMessageWithIdentifier:identifier];
+}
+
++ (void)sendNotificationForMessageWithIdentifier:(NSString *)identifier  {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFDictionaryRef const userInfo = NULL;
     BOOL const deliverImmediately = YES;
