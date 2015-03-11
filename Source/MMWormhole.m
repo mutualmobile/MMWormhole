@@ -127,6 +127,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         }
         
         BOOL success = [data writeToFile:filePath atomically:YES];
+        
         if (!success) {
             return;
         }
