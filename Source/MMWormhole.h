@@ -87,7 +87,8 @@
  listener for a "finished changing" message to let the other side know it's safe to read the 
  contents of your message.
  
- @param messageobject The message object to be passed
+ @param messageobject The message object to be passed. 
+                      This object may be nil. In this case only a notification is posted.
  @param identifier The identifier for the message
  */
 - (void)passMessageObject:(id <NSCoding>)messageObject

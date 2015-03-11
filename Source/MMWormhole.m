@@ -118,18 +118,21 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         return;
     }
     
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
-    NSString *filePath = [self filePathForIdentifier:identifier];
-    
-    if (data == nil || filePath == nil) {
-        return;
+    if (messageObject) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+        NSString *filePath = [self filePathForIdentifier:identifier];
+        
+        if (data == nil || filePath == nil) {
+            return;
+        }
+        
+        BOOL success = [data writeToFile:filePath atomically:YES];
+        if (!success) {
+            return;
+        }
     }
     
-    BOOL success = [data writeToFile:filePath atomically:YES];
-    
-    if (success) {
-        [self sendNotificationForMessageWithIdentifier:identifier];
-    }
+    [self sendNotificationForMessageWithIdentifier:identifier];
 }
 
 - (id)messageObjectFromFileWithIdentifier:(NSString *)identifier {
