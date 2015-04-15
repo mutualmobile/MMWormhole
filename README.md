@@ -52,31 +52,42 @@ Using MMWormhole is extremely straightforward. The only real catch is that your 
 
 Initialize MMWormhole with your App Group identifier and an optional directory name
 
+Objective-C:
 ```objective-c
 self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
                                                      optionalDirectory:@"wormhole"];
+```
+Swift:
+```swift
+let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.mutualmobile.wormhole", optionalDirectory: "wormhole")
 ```
 
 ### Passing a Message
 
 Pass a message with an identifier for the message and a NSCoding compliant object as the message itself
 
+Objective-C:
 ```objective-c
 [self.wormhole passMessageObject:@{@"titleString" : title} 
                       identifier:@"messageIdentifier"];
-
+```
+Swift:
+```swift
+wormhole.passMessageObject(title: "titleString", identifier: "messageIdentifier")
 ```
 
 ### Reading a Message
 
 You have two options for reading a message. You can obtain the message for an identifier at any time by asking the wormhole for the message. 
 
+Objective-C:
 ```objective-c
 id messageObject = [self.wormhole messageWithIdentifier:@"messageIdentifier"];
 ```
 
 You can also listen for changes to that message and be notified when that message is updated.
 
+Objective-C:
 ```objective-c
 [self.wormhole listenForMessageWithIdentifier:@"messageIdentifier" 
  listener:^(id messageObject) {
@@ -84,6 +95,13 @@ You can also listen for changes to that message and be notified when that messag
 }];
 
 ```
+Swift:
+```swift
+wormhole.listenForMessageWithIdentifier("titleString", listener: { (_) -> Void in
+  // Do something
+})
+```
+
 
 ### Designing Your Communication Scheme
 
