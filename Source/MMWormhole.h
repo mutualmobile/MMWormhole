@@ -63,6 +63,13 @@
  should use it's own set of identifiers to associate with it's messages back to the application.
  Passing messages to the same identifier from two locations should be done only at your own risk.
  */
+
+typedef NS_ENUM(NSInteger, MMWormholeStoreType) {
+	MMWormholeStoreTypeFile,
+	MMWormholeStoreTypeUserDefaults
+};
+
+
 @interface MMWormhole : NSObject
 
 /**
@@ -70,12 +77,30 @@
  be used to contain passed messages. It is also recommended that you include a directory name for
  messages to be read and written, but this parameter is optional.
  
+ You can also pass custom store option and choose which one to use
+ 
+ @param identifier An application group identifier
+ @param storeType A MMWormholeStoreType enum value that defines
+ @param directory An optional directory to read/write messages
+ */
+
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
+										 storeType:(MMWormholeStoreType)storeType
+								 optionalDirectory:(NSString *)directory NS_DESIGNATED_INITIALIZER;
+
+/**
+ This method must be called with an application group identifier that will
+ be used to contain passed messages. It is also recommended that you include a directory name for
+ messages to be read and written, but this parameter is optional.
+ 
+ Uses MMWormholeStoreTypeFile as storage.
+ 
  @param identifier An application group identifier
  @param directory An optional directory to read/write messages
  */
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                                 optionalDirectory:(NSString *)directory NS_DESIGNATED_INITIALIZER;
+                                 optionalDirectory:(NSString *)directory;
 
 /**
  This method passes a message object associated with a given identifier. This is the primary means
