@@ -36,7 +36,10 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
 @property (nonatomic, copy) NSString *directory;
 @property (nonatomic, strong) NSFileManager *fileManager;
+@property (nonatomic, strong) NSUserDefaults *sharedDefaults;
 @property (nonatomic, strong) NSMutableDictionary *listenerBlocks;
+
+@property (nonatomic) MMWormholeStoreType storeType;
 
 @end
 
@@ -52,18 +55,40 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 #pragma clang diagnostic pop
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                                 optionalDirectory:(NSString *)directory {
+								 optionalDirectory:(NSString *)directory {
+	
+	return [self initWithApplicationGroupIdentifier:identifier storeType:MMWormholeStoreTypeFile optionalDirectory:directory];
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier storeType:(MMWormholeStoreType)storeType optionalDirectory:(NSString *)directory {
     if ((self = [super init])) {
-        
+		
         if (NO == [[NSFileManager defaultManager] respondsToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)]) {
             //Protect the user of a crash because of iOSVersion < iOS7
             return nil;
         }
         
+		_storeType = storeType;
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
-        _fileManager = [[NSFileManager alloc] init];
         _listenerBlocks = [NSMutableDictionary dictionary];
+		
+		switch (storeType) {
+			case MMWormholeStoreTypeUserDefaults:
+			{
+				_fileManager = nil;
+				_sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:_applicationGroupIdentifier];
+			}
+				break;
+
+			case MMWormholeStoreTypeFile:
+			default:
+			{
+				_fileManager = [[NSFileManager alloc] init];
+				_sharedDefaults = nil;
+			}
+				break;
+		}
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didReceiveMessageNotification:)
@@ -119,20 +144,33 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     }
     
     if (messageObject) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
-        NSString *filePath = [self filePathForIdentifier:identifier];
-        
-        if (data == nil || filePath == nil) {
-            return;
-        }
-        
-        BOOL success = [data writeToFile:filePath atomically:YES];
-        
-        if (!success) {
-            return;
-        }
+		switch (self.storeType) {
+			case MMWormholeStoreTypeUserDefaults:
+			{
+				[self.sharedDefaults setObject:messageObject forKey:[self.directory stringByAppendingString:identifier]];
+			}
+				break;
+				
+			case MMWormholeStoreTypeFile:
+			default:
+			{
+				NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+				NSString *filePath = [self filePathForIdentifier:identifier];
+				
+				if (data == nil || filePath == nil) {
+					return;
+				}
+				
+				BOOL success = [data writeToFile:filePath atomically:YES];
+				
+				if (!success) {
+					return;
+				}
+			}
+				break;
+		}
     }
-    
+	
     [self sendNotificationForMessageWithIdentifier:identifier];
 }
 
@@ -140,20 +178,47 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     if (identifier == nil) {
         return nil;
     }
-    
-    NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
-    
-    if (data == nil) {
-        return nil;
-    }
-    
-    id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
+	
+	id messageObject = nil;
+	
+	switch (self.storeType) {
+		case MMWormholeStoreTypeUserDefaults:
+		{
+			messageObject = [self.sharedDefaults objectForKey:[self.directory stringByAppendingString:identifier]];
+		}
+			break;
+			
+		case MMWormholeStoreTypeFile:
+		default:
+		{
+			NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
+			if (data == nil) {
+				return nil;
+			}
+			messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+		}
+			break;
+	}
+	
     return messageObject;
 }
 
 - (void)deleteFileForIdentifier:(NSString *)identifier {
-    [self.fileManager removeItemAtPath:[self filePathForIdentifier:identifier] error:NULL];
+
+	switch (self.storeType) {
+		case MMWormholeStoreTypeUserDefaults:
+		{
+			[self.sharedDefaults removeObjectForKey:[self.directory stringByAppendingString:identifier]];
+		}
+			break;
+			
+		case MMWormholeStoreTypeFile:
+		default:
+		{
+			[self.fileManager removeItemAtPath:[self filePathForIdentifier:identifier] error:NULL];
+		}
+			break;
+	}
 }
 
 
