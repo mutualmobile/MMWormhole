@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
-               BuildableName = "MMWormhole-iOS.framework"
+               BuildableName = "MMWormhole.framework"
                BlueprintName = "MMWormhole-iOS"
                ReferencedContainer = "container:MMWormhole.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
-            BuildableName = "MMWormhole-iOS.framework"
+            BuildableName = "MMWormhole.framework"
             BlueprintName = "MMWormhole-iOS"
             ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
-            BuildableName = "MMWormhole-iOS.framework"
+            BuildableName = "MMWormhole.framework"
             BlueprintName = "MMWormhole-iOS"
             ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
-            BuildableName = "MMWormhole-iOS.framework"
+            BuildableName = "MMWormhole.framework"
             BlueprintName = "MMWormhole-iOS"
             ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
