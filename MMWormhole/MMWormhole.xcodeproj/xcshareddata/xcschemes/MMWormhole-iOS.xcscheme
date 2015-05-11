@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BB4B7AA1B004A510042D13A"
-               BuildableName = "MMWormholeFramework.framework"
-               BlueprintName = "MMWormholeFramework"
-               ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BB4B7B51B004A510042D13A"
-               BuildableName = "MMWormholeFrameworkTests.xctest"
-               BlueprintName = "MMWormholeFrameworkTests"
-               ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
+               BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
+               BuildableName = "MMWormhole-iOS.framework"
+               BlueprintName = "MMWormhole-iOS"
+               ReferencedContainer = "container:MMWormhole.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BB4B7B51B004A510042D13A"
-               BuildableName = "MMWormholeFrameworkTests.xctest"
-               BlueprintName = "MMWormholeFrameworkTests"
-               ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BB4B7AA1B004A510042D13A"
-            BuildableName = "MMWormholeFramework.framework"
-            BlueprintName = "MMWormholeFramework"
-            ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
+            BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
+            BuildableName = "MMWormhole-iOS.framework"
+            BlueprintName = "MMWormhole-iOS"
+            ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -75,10 +51,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BB4B7AA1B004A510042D13A"
-            BuildableName = "MMWormholeFramework.framework"
-            BlueprintName = "MMWormholeFramework"
-            ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
+            BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
+            BuildableName = "MMWormhole-iOS.framework"
+            BlueprintName = "MMWormhole-iOS"
+            ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -93,10 +69,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BB4B7AA1B004A510042D13A"
-            BuildableName = "MMWormholeFramework.framework"
-            BlueprintName = "MMWormholeFramework"
-            ReferencedContainer = "container:MMWormholeFramework.xcodeproj">
+            BlueprintIdentifier = "9B44A4C51B00570E00C9969A"
+            BuildableName = "MMWormhole-iOS.framework"
+            BlueprintName = "MMWormhole-iOS"
+            ReferencedContainer = "container:MMWormhole.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
