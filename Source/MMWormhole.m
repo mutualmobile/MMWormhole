@@ -29,12 +29,14 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationName";
 
 @interface MMWormhole ()
 
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
-@property (nonatomic, copy) NSString *directory;
+@property (nonatomic, nullable, copy) NSString *directory;
 @property (nonatomic, strong) NSFileManager *fileManager;
 @property (nonatomic, strong) NSMutableDictionary *listenerBlocks;
 
@@ -52,7 +54,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
 #pragma clang diagnostic pop
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                                 optionalDirectory:(NSString *)directory {
+                                 optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         
         if (NO == [[NSFileManager defaultManager] respondsToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)]) {
@@ -101,7 +103,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     return directoryPath;
 }
 
-- (NSString *)filePathForIdentifier:(NSString *)identifier {
+- (NSString *)filePathForIdentifier:(nullable NSString *)identifier {
     if (identifier == nil || identifier.length == 0) {
         return nil;
     }
@@ -113,7 +115,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     return filePath;
 }
 
-- (void)writeMessageObject:(id)messageObject toFileWithIdentifier:(NSString *)identifier {
+- (void)writeMessageObject:(nullable id)messageObject toFileWithIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return;
     }
@@ -136,7 +138,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     [self sendNotificationForMessageWithIdentifier:identifier];
 }
 
-- (id)messageObjectFromFileWithIdentifier:(NSString *)identifier {
+- (id)messageObjectFromFileWithIdentifier:(nullable NSString *)identifier {
     if (identifier == nil) {
         return nil;
     }
@@ -152,14 +154,14 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     return messageObject;
 }
 
-- (void)deleteFileForIdentifier:(NSString *)identifier {
+- (void)deleteFileForIdentifier:(nullable NSString *)identifier {
     [self.fileManager removeItemAtPath:[self filePathForIdentifier:identifier] error:NULL];
 }
 
 
 #pragma mark - Private Notification Methods
 
-- (void)sendNotificationForMessageWithIdentifier:(NSString *)identifier {
+- (void)sendNotificationForMessageWithIdentifier:(nullable NSString *)identifier {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFDictionaryRef const userInfo = NULL;
     BOOL const deliverImmediately = YES;
@@ -167,7 +169,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
     CFNotificationCenterPostNotification(center, str, NULL, userInfo, deliverImmediately);
 }
 
-- (void)registerForNotificationsWithIdentifier:(NSString *)identifier {
+- (void)registerForNotificationsWithIdentifier:(nullable NSString *)identifier {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFStringRef str = (__bridge CFStringRef)identifier;
     CFNotificationCenterAddObserver(center,
@@ -178,7 +180,7 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
                                     CFNotificationSuspensionBehaviorDeliverImmediately);
 }
 
-- (void)unregisterForNotificationsWithIdentifier:(NSString *)identifier {
+- (void)unregisterForNotificationsWithIdentifier:(nullable NSString *)identifier {
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFStringRef str = (__bridge CFStringRef)identifier;
     CFNotificationCenterRemoveObserver(center,
@@ -222,18 +224,18 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 
 #pragma mark - Public Interface Methods
 
-- (void)passMessageObject:(id <NSCoding>)messageObject identifier:(NSString *)identifier {
+- (void)passMessageObject:(nullable id <NSCoding>)messageObject identifier:(nullable NSString *)identifier {
     [self writeMessageObject:messageObject toFileWithIdentifier:identifier];
 }
 
 
-- (id)messageWithIdentifier:(NSString *)identifier {
+- (nullable id)messageWithIdentifier:(nullable NSString *)identifier {
     id messageObject = [self messageObjectFromFileWithIdentifier:identifier];
     
     return messageObject;
 }
 
-- (void)clearMessageContentsForIdentifier:(NSString *)identifier {
+- (void)clearMessageContentsForIdentifier:(nullable NSString *)identifier {
     [self deleteFileForIdentifier:identifier];
 }
 
@@ -251,15 +253,15 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     }
 }
 
-- (void)listenForMessageWithIdentifier:(NSString *)identifier
-                              listener:(void (^)(id messageObject))listener {
+- (void)listenForMessageWithIdentifier:(nullable NSString *)identifier
+                              listener:(nullable void (^)(__nullable id messageObject))listener {
     if (identifier != nil) {
         [self.listenerBlocks setValue:listener forKey:identifier];
         [self registerForNotificationsWithIdentifier:identifier];
     }
 }
 
-- (void)stopListeningForMessageWithIdentifier:(NSString *)identifier {
+- (void)stopListeningForMessageWithIdentifier:(nullable NSString *)identifier {
     if (identifier != nil) {
         [self.listenerBlocks setValue:nil forKey:identifier];
         [self unregisterForNotificationsWithIdentifier:identifier];
@@ -267,3 +269,5 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 @end
+
+NS_ASSUME_NONNULL_END
