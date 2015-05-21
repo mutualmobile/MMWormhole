@@ -94,6 +94,18 @@ You can think of message passing between apps and extensions sort of like a web 
 
 MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
 
+## Troubleshooting
+
+If messages are not received on the other end, check Project->Capabilities->App Groups 
+Three checkmarks should be displayed in the steps section.
+
+<p align="center">
+<img src="MMWormhole_correct.png") alt="Correct App Group Capabilities"/>
+</p>
+
+<p align="center">
+<img src="MMWormhole_incorrect.png") alt="Incorrect App Group Capabilities"/>
+</p>
 
 ## Credits
 
