@@ -97,7 +97,7 @@ Objective-C:
 ```
 Swift:
 ```swift
-wormhole.listenForMessageWithIdentifier("titleString", listener: { (messageObject) -> Void in
+wormhole.listenForMessageWithIdentifier("messageIdentifier", listener: { (messageObject) -> Void in
     if let message: AnyObject = messageObject {
         // Do something
     }
