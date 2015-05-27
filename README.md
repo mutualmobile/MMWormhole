@@ -38,7 +38,7 @@ You can install Wormhole in your project by using [CocoaPods](https://github.com
 pod 'MMWormhole', '~> 1.1.1'
 ```
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)<br/>
 MMWormhole also supports Carthage.
 
 ## Overview
