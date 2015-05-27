@@ -35,7 +35,7 @@
 
 @implementation MMWormholeFileTransiting
 
-- (id)initWithApplicationGroupIdentifier:(NSString *)identifier
+- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
                        optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         _applicationGroupIdentifier = [identifier copy];
@@ -91,7 +91,7 @@
 
 #pragma mark - Public Protocol Methods
 
-- (BOOL)writeMessageObject:(id)messageObject forIdentifier:(NSString *)identifier {
+- (BOOL)writeMessageObject:(id<NSCoding>)messageObject forIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return NO;
     }
@@ -114,7 +114,7 @@
     return YES;
 }
 
-- (id)messageObjectForIdentifier:(NSString *)identifier {
+- (id<NSCoding>)messageObjectForIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return nil;
     }

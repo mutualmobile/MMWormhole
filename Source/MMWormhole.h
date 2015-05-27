@@ -190,7 +190,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  @param identifier The identifier for the message
  @return YES indicating that a notification should be sent and NO otherwise
  */
-- (BOOL)writeMessageObject:(nullable id)messageObject forIdentifier:(NSString *)identifier;
+- (BOOL)writeMessageObject:(nullable id<NSCoding>)messageObject forIdentifier:(NSString *)identifier;
 
 /**
  This method is responsible for reading and returning the contents of a given message. It should
@@ -199,7 +199,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  
  @param identifier The identifier for the message
 */
-- (id)messageObjectForIdentifier:(nullable NSString *)identifier;
+- (nullable id<NSCoding>)messageObjectForIdentifier:(nullable NSString *)identifier;
 
 /**
  This method should clear the persisted contents of a specific message with a given identifier.

@@ -27,7 +27,7 @@
 
 #pragma mark - MMWormholeTransiting Methods
 
-- (BOOL)writeMessageObject:(id)messageObject forIdentifier:(NSString *)identifier {
+- (BOOL)writeMessageObject:(id<NSCoding>)messageObject forIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return NO;
     }
@@ -61,7 +61,7 @@
     return YES;
 }
 
-- (id)messageObjectForIdentifier:(NSString *)identifier {
+- (id<NSCoding>)messageObjectForIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return nil;
     }
