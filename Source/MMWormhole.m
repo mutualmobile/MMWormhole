@@ -92,12 +92,14 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     CFNotificationCenterRemoveEveryObserver(center, (__bridge const void *)(self));
 }
 
+
 #pragma mark - Private Check App Group Capabilities
 
 - (void)checkAppGroupCapabilities {
     NSURL *appGroupContainer = [self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier];
-    NSAssert(appGroupContainer != nil, @"App Group Capabilities may not be correctly configured for your project. Check Project->Capabilities->App Groups .Three checkmarks should be displayed in the steps section.");
+    NSAssert(appGroupContainer != nil, @"App Group Capabilities may not be correctly configured for your project, or your appGroupIdentifier may not match your project settings. Check Project->Capabilities->App Groups. Three checkmarks should be displayed in the steps section, and the value passed in for your appGroupIdentifier should match the setting in your project file.");
 }
+
 
 #pragma mark - Private File Operation Methods
 
