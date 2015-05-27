@@ -38,6 +38,9 @@ You can install Wormhole in your project by using [CocoaPods](https://github.com
 pod 'MMWormhole', '~> 1.1.1'
 ```
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+MMWormhole also supports Carthage.
+
 ## Overview
 
 MMWormhole is designed to make it easy to share very basic information and commands between an extension and it's containing application. The wormhole should remain stable whether the containing app is running or not, but notifications will only be triggered in the containing app if the app is awake in the background. This makes MMWormhole ideal for cases where the containing app is already running via some form of background modes. 
