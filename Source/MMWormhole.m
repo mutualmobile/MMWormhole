@@ -67,10 +67,11 @@ static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationNam
         _fileManager = [[NSFileManager alloc] init];
         _listenerBlocks = [NSMutableDictionary dictionary];
         
+        // Only respects notification coming from self.
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didReceiveMessageNotification:)
                                                      name:MMWormholeNotificationName
-                                                   object:nil];
+                                                   object:self];
     }
 
     return self;
@@ -195,8 +196,9 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
                                void const * object,
                                CFDictionaryRef userInfo) {
     NSString *identifier = (__bridge NSString *)name;
+    NSObject *sender = (__bridge NSObject *)(observer);
     [[NSNotificationCenter defaultCenter] postNotificationName:MMWormholeNotificationName
-                                                        object:nil
+                                                        object:sender
                                                       userInfo:@{@"identifier" : identifier}];
 }
 
