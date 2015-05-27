@@ -209,6 +209,39 @@
     XCTAssertTrue( wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
 }
 
+- (void)testMessagePassingAndListeningWithMultipleInstances {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Wormhole should receive message"];
+    
+    __block int wormhole1ListenerCounter = 0;
+    __block int wormhole2ListenerCounter = 0;
+    
+    // Instance 1
+    MMWormhole *wormhole1 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
+                                                                 optionalDirectory:@"testDirectory"];
+    
+    [wormhole1 listenForMessageWithIdentifier:@"testIdentifierWormhole1" listener:^(id messageObject) {
+        wormhole1ListenerCounter++;
+        [expectation fulfill];
+    }];
+    
+    
+    // Instance 2
+    MMWormhole *wormhole2 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
+                                                                 optionalDirectory:@"testDirectory"];
+    
+    [wormhole2 listenForMessageWithIdentifier:@"testIdentifierWormhole2" listener:^(id messageObject) {
+        wormhole2ListenerCounter++;
+    }];
+    
+    // Send a message to one wormhole and verify it is received by that one but not the other
+    [wormhole1 passMessageObject:@"message" identifier:@"testIdentifierWormhole1"];
+    
+    [self waitForExpectationsWithTimeout:2 handler:^(NSError *error) {
+        XCTAssertTrue( wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
+    }];
+    
+}
+
 - (void)testStopMessageListening {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
