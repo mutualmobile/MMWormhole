@@ -119,7 +119,7 @@ MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
 
 ## Troubleshooting
 
-If messages are not received on the other end, check Project->Capabilities->App Groups 
+If messages are not received on the other end, check Project->Capabilities->App Groups.<br/>
 Three checkmarks should be displayed in the steps section.
 
 <p align="center">
