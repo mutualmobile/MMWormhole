@@ -1,3 +1,20 @@
+##[1.2.0](https://github.com/mutualmobile/MMWormhole/milestones/1.2.0) (Thursday, May 28th, 2015)
+**NEW**
+* Added support for sending a notification by passing nil as the message. (Felix Lamouroux)
+* Added support for Carthage dependency management. (Lei Wang)
+* Added support for subclassing MMWormhole's message passing system via MMWormholeTransiting. (Conrad Stoll)
+* Added support for NSFileCoordinator message file writing. (Conrad Stoll
+* Added new troubleshooting checks for App Group configuration. (Ernesto Torres)
+* Added nullability annotations for better Swift support. (Timothy Sanders)
+* Silenced a c function declaration warning. (Wes Ostler)
+* Updated README to include Swift examples. (Nate McGuire)
+
+**Fixed**
+* **FIXED** an issue ([#36](https://github.com/mutualmobile/MMWormhole/pull/36)) where a listener block could be called multiple times. (Naldikt)
+* **FIXED** a typo in the README. (Marcus Mattsson)
+
+
+
 ##[1.1.1](https://github.com/mutualmobile/MMWormhole/milestones/1.1.1) (Friday, February 13th, 2015)
 **NEW**
 * Added support for OS X in CocoaPods. (ConfusedVorlon)
