@@ -188,6 +188,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  @param messageObject The message object to be passed.
  This object may be nil. In this the method should return YES.
  @param identifier The identifier for the message
+ @return YES indicating that a notification should be sent and NO otherwise
  */
 - (BOOL)writeMessageObject:(nullable id)messageObject forIdentifier:(NSString *)identifier;
 

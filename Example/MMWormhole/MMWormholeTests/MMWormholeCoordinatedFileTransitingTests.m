@@ -1,5 +1,5 @@
 //
-//  MMWormholeFileTransitingTests.m
+//  MMWormholeCoordinatedFileTransitingTests.m
 //  MMWormhole
 //
 //  Created by Conrad Stoll on 5/27/15.
@@ -8,15 +8,15 @@
 
 #import <XCTest/XCTest.h>
 
-#import "MMWormholeFileTransiting.h"
+#import "MMWormholeCoordinatedFileTransiting.h"
 
 #define ApplicationGroupIdentifier  @"group.com.mutualmobile.wormhole"
 
-@interface MMWormholeFileTransitingTests : XCTestCase
+@interface MMWormholeCoordinatedFileTransitingTests : XCTestCase
 
 @end
 
-@implementation MMWormholeFileTransitingTests
+@implementation MMWormholeCoordinatedFileTransitingTests
 
 - (void)setUp {
     [super setUp];
@@ -31,7 +31,9 @@
 - (void)testMessagePassingDirectory {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
     
     NSString *messagePassingDirectoryPath = [transiting messagePassingDirectoryPath];
     
@@ -43,8 +45,10 @@
 - (void)testFilePathForIdentifier {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     NSString *filePathForIdentifier = [transiting filePathForIdentifier:@"testIdentifier"];
     
     NSString *lastComponent = [[filePathForIdentifier pathComponents] lastObject];
@@ -55,8 +59,10 @@
 - (void)testFilePathForNilIdentifier {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     NSString *filePathForIdentifier = [transiting filePathForIdentifier:nil];
     
     NSString *lastComponent = [[filePathForIdentifier pathComponents] lastObject];
@@ -67,8 +73,10 @@
 - (void)testValidMessagePassing {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     [transiting deleteContentForIdentifier:@"testIdentifier"];
     
     id messageObject = [transiting messageObjectForIdentifier:@"testIdentifier"];
@@ -87,8 +95,10 @@
 - (void)testFileWriting {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     [transiting deleteContentForIdentifier:@"testIdentifier"];
     
     id messageObject = [transiting messageObjectForIdentifier:@"testIdentifier"];
@@ -107,8 +117,10 @@
 - (void)testClearingIndividualMessage {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     [wormhole passMessageObject:@{} identifier:@"testIdentifier"];
     
     id messageObject = [transiting messageObjectForIdentifier:@"testIdentifier"];
@@ -131,8 +143,10 @@
 - (void)testClearingAllMessages {
     MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
-    MMWormholeFileTransiting *transiting = wormhole.wormholeMessenger;
-
+    MMWormholeCoordinatedFileTransiting *transiting = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier optionalDirectory:@"testDirectory"];
+    
+    wormhole.wormholeMessenger = transiting;
+    
     [wormhole passMessageObject:@{} identifier:@"testIdentifier1"];
     [wormhole passMessageObject:@{} identifier:@"testIdentifier2"];
     [wormhole passMessageObject:@{} identifier:@"testIdentifier3"];
@@ -147,6 +161,5 @@
     XCTAssertNil(deletedMessageObject2, @"Message object should be nil after deleting message.");
     XCTAssertNil(deletedMessageObject3, @"Message object should be nil after deleting message.");
 }
-
 
 @end

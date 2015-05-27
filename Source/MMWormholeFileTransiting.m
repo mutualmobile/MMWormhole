@@ -35,7 +35,8 @@
 
 @implementation MMWormholeFileTransiting
 
-- (id)initWithApplicationGroupIdentifier:(NSString *)identifier optionalDirectory:(NSString *)directory {
+- (id)initWithApplicationGroupIdentifier:(NSString *)identifier
+                       optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
@@ -58,7 +59,7 @@
 
 #pragma mark - Private File Operation Methods
 
-- (NSString *)messagePassingDirectoryPath {
+- (nullable NSString *)messagePassingDirectoryPath {
     NSURL *appGroupContainer = [self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier];
     NSString *appGroupContainerPath = [appGroupContainer path];
     NSString *directoryPath = appGroupContainerPath;
@@ -75,7 +76,7 @@
     return directoryPath;
 }
 
-- (NSString *)filePathForIdentifier:(NSString *)identifier {
+- (nullable NSString *)filePathForIdentifier:(nullable NSString *)identifier {
     if (identifier == nil || identifier.length == 0) {
         return nil;
     }

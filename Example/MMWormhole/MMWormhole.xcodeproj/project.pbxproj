@@ -24,6 +24,11 @@
 		2679DC1C1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
 		2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679DC1B1A33D37B00961787 /* MMWormhole.m */; };
 		55030BCD1B163680005EFC19 /* MMWormholeFileTransitingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCC1B163680005EFC19 /* MMWormholeFileTransitingTests.m */; };
+		55030BD01B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BD11B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BD21B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BD31B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BD51B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD41B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m */; };
 		557B4F841B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 557B4F831B03F313006FDD70 /* MMWormholeFileTransiting.m */; };
 		557B4F851B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 557B4F831B03F313006FDD70 /* MMWormholeFileTransiting.m */; };
 		557B4F861B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 557B4F831B03F313006FDD70 /* MMWormholeFileTransiting.m */; };
@@ -110,6 +115,9 @@
 		2679DC1A1A33D37B00961787 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormhole.h; path = ../../../Source/MMWormhole.h; sourceTree = "<group>"; };
 		2679DC1B1A33D37B00961787 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormhole.m; path = ../../../Source/MMWormhole.m; sourceTree = "<group>"; };
 		55030BCC1B163680005EFC19 /* MMWormholeFileTransitingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeFileTransitingTests.m; sourceTree = "<group>"; };
+		55030BCE1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormholeCoordinatedFileTransiting.h; path = ../../../Source/MMWormholeCoordinatedFileTransiting.h; sourceTree = "<group>"; };
+		55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormholeCoordinatedFileTransiting.m; path = ../../../Source/MMWormholeCoordinatedFileTransiting.m; sourceTree = "<group>"; };
+		55030BD41B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeCoordinatedFileTransitingTests.m; sourceTree = "<group>"; };
 		557B4F821B03EB9F006FDD70 /* MMWormholeFileTransiting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMWormholeFileTransiting.h; path = ../../../Source/MMWormholeFileTransiting.h; sourceTree = "<group>"; };
 		557B4F831B03F313006FDD70 /* MMWormholeFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormholeFileTransiting.m; path = ../../../Source/MMWormholeFileTransiting.m; sourceTree = "<group>"; };
 		55D935F21A38A4F200AD1A1C /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +219,7 @@
 			children = (
 				2679DBDB1A33B7C700961787 /* MMWormholeTests.m */,
 				55030BCC1B163680005EFC19 /* MMWormholeFileTransitingTests.m */,
+				55030BD41B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m */,
 				2679DBD91A33B7C700961787 /* Supporting Files */,
 			);
 			path = MMWormholeTests;
@@ -284,6 +293,8 @@
 			children = (
 				2679DC1A1A33D37B00961787 /* MMWormhole.h */,
 				2679DC1B1A33D37B00961787 /* MMWormhole.m */,
+				55030BCE1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.h */,
+				55030BCF1B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m */,
 				557B4F821B03EB9F006FDD70 /* MMWormholeFileTransiting.h */,
 				557B4F831B03F313006FDD70 /* MMWormholeFileTransiting.m */,
 			);
@@ -521,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55030BD01B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				2679DBC81A33B7C700961787 /* ViewController.m in Sources */,
 				2679DBC51A33B7C700961787 /* AppDelegate.m in Sources */,
 				557B4F841B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */,
@@ -535,7 +547,9 @@
 			files = (
 				2679DBDC1A33B7C700961787 /* MMWormholeTests.m in Sources */,
 				557B4F851B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */,
+				55030BD11B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				55030BCD1B163680005EFC19 /* MMWormholeFileTransitingTests.m in Sources */,
+				55030BD51B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +559,7 @@
 			files = (
 				2679DC1D1A33D37B00961787 /* MMWormhole.m in Sources */,
 				557B4F861B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */,
+				55030BD21B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				2679DBF81A33C45200961787 /* InterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +570,7 @@
 			files = (
 				55D936041A38A5C000AD1A1C /* MMWormhole.m in Sources */,
 				557B4F871B03F313006FDD70 /* MMWormholeFileTransiting.m in Sources */,
+				55030BD31B165351005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
