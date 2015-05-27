@@ -23,6 +23,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  This class creates a wormhole between a containing iOS application and an extension. The wormhole
  is meant to be used to pass data or commands back and forth between the two locations. The effect
@@ -75,7 +77,7 @@
  */
 
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                                 optionalDirectory:(NSString *)directory NS_DESIGNATED_INITIALIZER;
+                                 optionalDirectory:(nullable NSString *)directory NS_DESIGNATED_INITIALIZER;
 
 /**
  This method passes a message object associated with a given identifier. This is the primary means
@@ -91,22 +93,22 @@
                       This object may be nil. In this case only a notification is posted.
  @param identifier The identifier for the message
  */
-- (void)passMessageObject:(id <NSCoding>)messageObject
-               identifier:(NSString *)identifier;
+- (void)passMessageObject:(nullable id <NSCoding>)messageObject
+			   identifier:(nullable NSString *)identifier;
 
 /**
  This method returns the value of a message with a specific identifier as an object.
  
  @param identifier The identifier for the message
  */
-- (id)messageWithIdentifier:(NSString *)identifier;
+- (nullable id)messageWithIdentifier:(nullable NSString *)identifier;
 
 /**
  This method clears the contents of a specific message with a given identifier.
  
  @param identifier The identifier for the message
  */
-- (void)clearMessageContentsForIdentifier:(NSString *)identifier;
+- (void)clearMessageContentsForIdentifier:(nullable NSString *)identifier;
 
 /**
  This method clears the contents of your optional message directory to give you a clean state.
@@ -128,8 +130,8 @@
  @param listener A listener block called with the messageObject parameter when a notification
  is observed.
  */
-- (void)listenForMessageWithIdentifier:(NSString *)identifier
-                              listener:(void (^)(id messageObject))listener;
+- (void)listenForMessageWithIdentifier:(nullable NSString *)identifier
+                              listener:(nullable void (^)(__nullable id messageObject))listener;
 
 /**
  This method stops listening for change notifications for a given message identifier.
@@ -139,6 +141,8 @@
  
  @param identifier The identifier for the message
  */
-- (void)stopListeningForMessageWithIdentifier:(NSString *)identifier;
+- (void)stopListeningForMessageWithIdentifier:(nullable NSString *)identifier;
+
+NS_ASSUME_NONNULL_END
 
 @end
