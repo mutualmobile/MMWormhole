@@ -33,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString * const MMWormholeNotificationName = @"MMWormholeNotificationName";
 
+void wormholeNotificationCallback(CFNotificationCenterRef center,
+                                  void * observer,
+                                  CFStringRef name,
+                                  void const * object,
+                                  CFDictionaryRef userInfo);
+
 @interface MMWormhole ()
 
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
