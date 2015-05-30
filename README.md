@@ -76,7 +76,7 @@ Objective-C:
 ```
 Swift:
 ```swift
-wormhole.passMessageObject(title: "titleString", identifier: "messageIdentifier")
+wormhole.passMessageObject("titleString", identifier: "messageIdentifier")
 ```
 
 ### Reading a Message
