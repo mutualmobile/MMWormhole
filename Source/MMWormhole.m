@@ -187,6 +187,8 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 - (void)registerForNotificationsWithIdentifier:(nullable NSString *)identifier {
+    [self unregisterForNotificationsWithIdentifier:identifier];
+    
     CFNotificationCenterRef const center = CFNotificationCenterGetDarwinNotifyCenter();
     CFStringRef str = (__bridge CFStringRef)identifier;
     CFNotificationCenterAddObserver(center,

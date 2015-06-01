@@ -179,7 +179,6 @@
 }
 
 - (void)testMessageListeningWithMultipleInstances {
-    
     __block int wormhole1ListenerCounter = 0;
     __block int wormhole2ListenerCounter = 0;
     
@@ -237,7 +236,7 @@
     [wormhole1 passMessageObject:@"message" identifier:@"testIdentifierWormhole1"];
     
     [self waitForExpectationsWithTimeout:2 handler:^(NSError *error) {
-        XCTAssertTrue( wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
+        XCTAssertTrue(wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
     }];
     
 }
@@ -271,6 +270,44 @@
         
         XCTAssertNil(deletedListenerBlock, @"The listener block should be nil after you stop listening.");
     }];    
+}
+
+- (void)testMessagePassingDuplicateListeners {
+    __block int wormholeListenerCounter = 0;
+    
+    MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
+                                                                optionalDirectory:@"testDirectory"];
+    
+    XCTestExpectation *validExpectation = [self expectationWithDescription:@"Listener should hear something only once."];
+    XCTestExpectation *invalidExpectation = [self expectationWithDescription:@"Listener should not hear something more than once."];
+
+    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+        XCTAssertTrue(NO, @"This listener should never be called.");
+    }];
+    
+    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+        XCTAssertNotNil(messageObject, @"This listener should be called with a valid message object..");
+        
+        if (wormholeListenerCounter == 0) {
+            [validExpectation fulfill];
+        }
+        
+        wormholeListenerCounter++;
+        
+        if (wormholeListenerCounter > 1) {
+            [invalidExpectation fulfill];
+        }
+    }];
+    
+    [wormhole passMessageObject:@"message" identifier:@"testIdentifier"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [invalidExpectation fulfill];
+    });
+
+    [self waitForExpectationsWithTimeout:3 handler:^(NSError *error) {
+        XCTAssertTrue(wormholeListenerCounter == 1, @"The listener for a given identifier should only be called once per message." );
+    }];
 }
 
 - (void)testMessagePassingPerformance {
