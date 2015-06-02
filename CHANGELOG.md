@@ -1,4 +1,4 @@
-##[1.2.0](https://github.com/mutualmobile/MMWormhole/milestones/1.2.0) (Thursday, May 28th, 2015)
+##[1.2.0](https://github.com/mutualmobile/MMWormhole/milestones/1.2.0) (Tuesday, June 2nd, 2015)
 **NEW**
 * Added support for sending a notification by passing nil as the message. (Felix Lamouroux)
 * Added support for Carthage dependency management. (Lei Wang)
