@@ -31,6 +31,8 @@ FOUNDATION_EXPORT double MMWormholeVersionNumber;
 //! Project version string for MMWormhole.
 FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
 
+typedef void(^MMWormholeListenerCallback)(__nullable id messageObject, NSString* identifier);
+
 /**
  This class creates a wormhole between a containing iOS application and an extension. The wormhole
  is meant to be used to pass data or commands back and forth between the two locations. The effect
@@ -137,7 +139,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  is observed.
  */
 - (void)listenForMessageWithIdentifier:(nullable NSString *)identifier
-                              listener:(nullable void (^)(__nullable id messageObject))listener;
+                              listener:(nullable MMWormholeListenerCallback)listener;
 
 /**
  This method stops listening for change notifications for a given message identifier.

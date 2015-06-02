@@ -225,12 +225,12 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-        MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
+        MMWormholeListenerCallback listenerBlock = [self listenerBlockForIdentifier:identifier];
 
         if (listenerBlock) {
             id messageObject = [self messageObjectFromFileWithIdentifier:identifier];
 
-            listenerBlock(messageObject);
+            listenerBlock(messageObject, identifier);
         }
     }
 }
@@ -272,7 +272,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 - (void)listenForMessageWithIdentifier:(nullable NSString *)identifier
-                              listener:(nullable void (^)(__nullable id messageObject))listener {
+                              listener:(nullable MMWormholeListenerCallback)listener {
     if (identifier != nil) {
         [self.listenerBlocks setValue:listener forKey:identifier];
         [self registerForNotificationsWithIdentifier:identifier];

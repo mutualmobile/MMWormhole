@@ -163,7 +163,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Listener should hear something"];
     
-    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject, NSString* identifier) {
         XCTAssertNotNil(messageObject, @"Valid message object should not be nil.");
         
         [expectation fulfill];
@@ -187,7 +187,7 @@
     MMWormhole *wormhole1 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                 optionalDirectory:@"testDirectory"];
     
-    [wormhole1 listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+    [wormhole1 listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject, NSString* identifier) {
         wormhole1ListenerCounter++;
     }];
     
@@ -196,7 +196,7 @@
     MMWormhole *wormhole2 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                  optionalDirectory:@"testDirectory"];
     
-    [wormhole2 listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+    [wormhole2 listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject, NSString* identifier) {
         wormhole2ListenerCounter++;
     }];
     
@@ -219,7 +219,7 @@
     MMWormhole *wormhole1 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                  optionalDirectory:@"testDirectory"];
     
-    [wormhole1 listenForMessageWithIdentifier:@"testIdentifierWormhole1" listener:^(id messageObject) {
+    [wormhole1 listenForMessageWithIdentifier:@"testIdentifierWormhole1" listener:^(id messageObject, NSString* identifier) {
         wormhole1ListenerCounter++;
         [expectation fulfill];
     }];
@@ -229,7 +229,7 @@
     MMWormhole *wormhole2 = [[MMWormhole alloc] initWithApplicationGroupIdentifier:ApplicationGroupIdentifier
                                                                  optionalDirectory:@"testDirectory"];
     
-    [wormhole2 listenForMessageWithIdentifier:@"testIdentifierWormhole2" listener:^(id messageObject) {
+    [wormhole2 listenForMessageWithIdentifier:@"testIdentifierWormhole2" listener:^(id messageObject, NSString* identifier) {
         wormhole2ListenerCounter++;
     }];
     
@@ -248,7 +248,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Listener should hear something"];
     
-    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject) {
+    [wormhole listenForMessageWithIdentifier:@"testIdentifier" listener:^(id messageObject, NSString* identifier) {
         XCTAssertNotNil(messageObject, @"Valid message object should not be nil.");
         
         [expectation fulfill];
