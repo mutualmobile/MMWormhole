@@ -11,8 +11,8 @@
 
 **Fixed**
 * **FIXED** an issue ([#36](https://github.com/mutualmobile/MMWormhole/pull/36)) where a listener block could be called multiple times. (Naldikt)
+* **FIXED** an issue ([#43](https://github.com/mutualmobile/MMWormhole/issues/43)) where a listener block could be registered and called multiple times. (Peter De Bock)
 * **FIXED** a typo in the README. (Marcus Mattsson)
-
 
 
 ##[1.1.1](https://github.com/mutualmobile/MMWormhole/milestones/1.1.1) (Friday, February 13th, 2015)
