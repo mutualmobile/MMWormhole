@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55030BDA1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55030BD61B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55030BDB1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55030BD61B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55030BDC1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BDD1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */; };
+		55030BDE1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55030BE01B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */; };
+		55030BE11B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */; };
 		9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
 		9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55030BD61B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeCoordinatedFileTransiting.h; sourceTree = "<group>"; };
+		55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeCoordinatedFileTransiting.m; sourceTree = "<group>"; };
+		55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeFileTransiting.h; sourceTree = "<group>"; };
+		55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeFileTransiting.m; sourceTree = "<group>"; };
 		9B44A4661B0055C500C9969A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B44A47F1B0055F500C9969A /* MMWormhole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		9B44A4801B0055F500C9969A /* MMWormhole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
@@ -78,6 +90,10 @@
 			children = (
 				9B44A47F1B0055F500C9969A /* MMWormhole.h */,
 				9B44A4801B0055F500C9969A /* MMWormhole.m */,
+				55030BD61B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h */,
+				55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */,
+				55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */,
+				55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -90,7 +106,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55030BDE1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
 				9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */,
+				55030BDA1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +116,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
 				9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */,
+				55030BDB1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55030BDC1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
+				55030BE01B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */,
 				9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55030BDD1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
+				55030BE11B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */,
 				9B44A51E1B00572E00C9969A /* MMWormhole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
