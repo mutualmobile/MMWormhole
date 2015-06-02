@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MMWormhole'
-  s.version  = '1.1.1'
+  s.version  = '1.2.0'
   s.license  = 'MIT'
   s.summary  = 'Message passing between apps and extensions.'
   s.homepage = 'https://github.com/mutualmobile/MMWormhole'
