@@ -16,6 +16,7 @@
 
 @property (nonatomic, copy) NSString *directory;
 @property (nonatomic, strong) WCSession *session;
+@property (nonatomic, strong) WCSessionFileTransfer *transfer;
 
 @end
 
@@ -87,7 +88,7 @@
         
         NSURL *fileURL = [NSURL URLWithString:filePath];
         
-        [self.session transferFile:fileURL metadata:@{@"identifier" : identifier}];
+        self.transfer = [self.session transferFile:fileURL metadata:@{@"identifier" : identifier}];
         [self.session sendMessage:@{identifier : data} replyHandler:nil errorHandler:nil];
         
         if ([NSPropertyListSerialization propertyList:data isValidForFormat:NSPropertyListXMLFormat_v1_0]) {
