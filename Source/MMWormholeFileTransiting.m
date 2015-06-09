@@ -29,20 +29,30 @@
 
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
 @property (nonatomic, copy) NSString *directory;
-@property (nonatomic, strong) NSFileManager *fileManager;
+@property (nonatomic, strong, readwrite) NSFileManager *fileManager;
 
 @end
 
 @implementation MMWormholeFileTransiting
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                       optionalDirectory:(nullable NSString *)directory {
+- (instancetype)init {
+    if ((self = [self init])) {
+        
+    }
+    
+    return nil;
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
+                                 optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
         _fileManager = [[NSFileManager alloc] init];
         
-        [self checkAppGroupCapabilities];
+        if (_applicationGroupIdentifier) {
+            [self checkAppGroupCapabilities];
+        }
     }
     
     return self;
@@ -119,7 +129,13 @@
         return nil;
     }
     
-    NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
+    NSString *filePath = [self filePathForIdentifier:identifier];
+    
+    if (filePath == nil) {
+        return nil;
+    }
+    
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     if (data == nil) {
         return nil;

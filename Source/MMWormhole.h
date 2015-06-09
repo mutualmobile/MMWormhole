@@ -25,6 +25,12 @@
 
 @protocol MMWormholeTransiting;
 
+@protocol MMWormholeTransitingDelegate <NSObject>
+
+- (void)notifyListenerForMessageWithIdentifier:(nullable NSString *)identifier message:(nullable id<NSCoding>)message;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 //! Project version number for MMWormhole.
@@ -73,7 +79,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  should use it's own set of identifiers to associate with it's messages back to the application.
  Passing messages to the same identifier from two locations should be done only at your own risk.
  */
-@interface MMWormhole : NSObject
+@interface MMWormhole : NSObject <MMWormholeTransitingDelegate>
 
 /**
  The wormhole messenger is an object that conforms to the MMWormholeTransiting protocol. By default
@@ -100,7 +106,7 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  @param directory An optional directory to read/write messages
  */
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
                                  optionalDirectory:(nullable NSString *)directory NS_DESIGNATED_INITIALIZER;
 
 /**

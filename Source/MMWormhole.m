@@ -57,7 +57,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 
 #pragma clang diagnostic pop
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
                                  optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         
@@ -134,24 +134,30 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
-    typedef void (^MessageListenerBlock)(id messageObject);
-    
     NSDictionary *userInfo = notification.userInfo;
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-        MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
+        id messageObject = [self.wormholeMessenger messageObjectForIdentifier:identifier];
 
-        if (listenerBlock) {
-            id messageObject = [self.wormholeMessenger messageObjectForIdentifier:identifier];
-
-            listenerBlock(messageObject);
-        }
+        [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
     }
 }
 
 - (id)listenerBlockForIdentifier:(NSString *)identifier {
     return [self.listenerBlocks valueForKey:identifier];
+}
+
+- (void)notifyListenerForMessageWithIdentifier:(nullable NSString *)identifier message:(nullable id<NSCoding>)message {
+    typedef void (^MessageListenerBlock)(id messageObject);
+
+    MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
+    
+    if (listenerBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            listenerBlock(message);
+        });
+    }
 }
 
 
