@@ -25,7 +25,7 @@
     [super awakeWithContext:context];
     
     // Initialize the wormhole
-    self.wormhole = [[MMWormholeSession alloc] initWithOptionalDirectory:@"wormhole"];
+    self.wormhole = [[MMWormholeSession alloc] init];
 
     
     // Obtain an initial value for the selection message from the wormhole
@@ -53,7 +53,6 @@
 // The messages contain a single number value with the buttonNumber key
 - (IBAction)didTapOne:(id)sender {
     [self.wormhole passMessageObject:@{@"buttonNumber" : @(1)} identifier:@"button"];
-    [self.wormhole messageWithIdentifier:@"selection"];
 }
 
 - (IBAction)didTapTwo:(id)sender {
