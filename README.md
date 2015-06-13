@@ -35,8 +35,11 @@ The MMWormhole Example app will only work with your shared App Group identifiers
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
 ```Ruby
-pod 'MMWormhole', '~> 1.1.1'
+pod 'MMWormhole', '~> 1.2.0'
 ```
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)<br/>
+MMWormhole also supports Carthage.
 
 ## Overview
 
@@ -52,31 +55,42 @@ Using MMWormhole is extremely straightforward. The only real catch is that your 
 
 Initialize MMWormhole with your App Group identifier and an optional directory name
 
+Objective-C:
 ```objective-c
 self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
                                                      optionalDirectory:@"wormhole"];
+```
+Swift:
+```swift
+let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.mutualmobile.wormhole", optionalDirectory: "wormhole")
 ```
 
 ### Passing a Message
 
 Pass a message with an identifier for the message and a NSCoding compliant object as the message itself
 
+Objective-C:
 ```objective-c
 [self.wormhole passMessageObject:@{@"titleString" : title} 
                       identifier:@"messageIdentifier"];
-
+```
+Swift:
+```swift
+wormhole.passMessageObject("titleString", identifier: "messageIdentifier")
 ```
 
 ### Reading a Message
 
 You have two options for reading a message. You can obtain the message for an identifier at any time by asking the wormhole for the message. 
 
+Objective-C:
 ```objective-c
 id messageObject = [self.wormhole messageWithIdentifier:@"messageIdentifier"];
 ```
 
 You can also listen for changes to that message and be notified when that message is updated.
 
+Objective-C:
 ```objective-c
 [self.wormhole listenForMessageWithIdentifier:@"messageIdentifier" 
  listener:^(id messageObject) {
@@ -84,6 +98,15 @@ You can also listen for changes to that message and be notified when that messag
 }];
 
 ```
+Swift:
+```swift
+wormhole.listenForMessageWithIdentifier("messageIdentifier", listener: { (messageObject) -> Void in
+    if let message: AnyObject = messageObject {
+        // Do something
+    }
+})
+```
+
 
 ### Designing Your Communication Scheme
 
@@ -94,6 +117,18 @@ You can think of message passing between apps and extensions sort of like a web 
 
 MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
 
+## Troubleshooting
+
+If messages are not received on the other end, check Project->Capabilities->App Groups.<br/>
+Three checkmarks should be displayed in the steps section.
+
+<p align="center">
+<img src="MMWormhole_correct.png") alt="Correct App Group Capabilities"/>
+</p>
+
+<p align="center">
+<img src="MMWormhole_incorrect.png") alt="Incorrect App Group Capabilities"/>
+</p>
 
 ## Credits
 
