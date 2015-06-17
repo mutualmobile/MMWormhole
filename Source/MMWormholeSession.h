@@ -25,4 +25,14 @@
 
 @interface MMWormholeSession : MMWormhole
 
+/**
+ MMWormholeSession is required to act as a singleton because the underlying WCSession object is also
+ a singleton. Creating multiple MMWormholeSessions would require multiplexing the message receipt
+ delegate methods from WCSession to the multiple wormhole session objects.
+ 
+ During the watchOS 2 beta period we will be evaluating other options that don't require this class
+ to be a singleton. Until then, please use the singleton accessor below.
+ */
++ (instancetype)sharedSession;
+
 @end

@@ -28,6 +28,10 @@
 
 @interface MMWormholeSessionTransiting : MMWormholeFileTransiting <WCSessionDelegate>
 @property (nonatomic, strong) WCSession *session;
+
+// These properties are required for a workaround that is explained below.
+@property (nonatomic) NSTimeInterval lastUpdate;
+@property (nonatomic, strong) NSMutableDictionary *lastContext;
 @end
 
 @implementation MMWormholeSessionTransiting
@@ -66,12 +70,43 @@
             [self.session sendMessage:@{identifier : data} replyHandler:nil errorHandler:nil];
         }
         
+        // This section of code is required for a workaround that is explained below.
+        if (self.lastContext == nil) {
+            self.lastContext = [@{} mutableCopy];
+        }
+        
         NSMutableDictionary *currentContext = [self.session.applicationContext mutableCopy];
+        
+        // This line of code is required for a workaround that is explained below.
+        [currentContext addEntriesFromDictionary:self.lastContext];
+        
         currentContext[identifier] = data;
+        
+        // This line of code is required for a workaround that is explained below.
+        self.lastContext = currentContext;
+        
+        /**
+         This section of code is a workaround for a bug in WatchConnectivity that clogs the channel
+         if updateApplicationContext is called too frequently. In our testing, a 5 second interval
+         seems to result in the best performance. This has been filed as a radar (21364664) and is
+         expected to be fixed in an upcoming beta release. Once fixed, this workaround should no
+         longer be required and will be removed.
+         */
+        
+        if ([NSDate timeIntervalSinceReferenceDate] - 5 < self.lastUpdate && self.lastUpdate != 0) {
+            return NO;
+        }
+        
+        // This line of code is required for a workaround that is explained above.
+        self.lastUpdate = [NSDate timeIntervalSinceReferenceDate];
         
         NSError *error = nil;
         
-        [self.session updateApplicationContext:currentContext error:&error];
+        BOOL success = [self.session updateApplicationContext:currentContext error:&error];
+        
+        if (success == NO || error != nil) {
+
+        }
     }
     
     return NO;
@@ -109,12 +144,23 @@
 
 @implementation MMWormholeSession
 
++ (instancetype)sharedSession {
+    static MMWormholeSession *sharedSession = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedSession = [[self alloc] init];
+    });
+    
+    return sharedSession;
+}
+
 - (instancetype)init {
     if ((self = [super initWithApplicationGroupIdentifier:nil optionalDirectory:nil])) {
         _session = [WCSession defaultSession];
         _session.delegate = self;
         [_session activateSession];
-
+        
         self.wormholeMessenger = [[MMWormholeSessionTransiting alloc] initWithSession:[WCSession defaultSession]];
     }
     
