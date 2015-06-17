@@ -25,7 +25,7 @@
     [super awakeWithContext:context];
     
     // Initialize the wormhole
-    self.wormhole = [[MMWormholeSession alloc] init];
+    self.wormhole = [MMWormholeSession sharedSession];
 
     
     // Obtain an initial value for the selection message from the wormhole

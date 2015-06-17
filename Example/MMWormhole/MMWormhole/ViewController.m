@@ -30,7 +30,7 @@
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
                                                          optionalDirectory:@"wormhole"];
     
-    self.watchWormhole = [[MMWormholeSession alloc] init];
+    self.watchWormhole = [MMWormholeSession sharedSession];
     
     // Become a listener for changes to the wormhole for the button message
     [self.wormhole listenForMessageWithIdentifier:@"button" listener:^(id messageObject) {
