@@ -19,6 +19,8 @@
 		9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
 		9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51E1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
+		E9DBE1651B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9DBE1661B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		9B44A4801B0055F500C9969A /* MMWormhole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 		9B44A4C61B00570E00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B44A5021B00571F00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormholeUmbrella.h; path = MMWormhole/MMWormholeUmbrella.h; sourceTree = SOURCE_ROOT; };
+		E9DBE1671B7DFAD400C9A9B5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				9B44A4661B0055C500C9969A /* Info.plist */,
+				E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */,
+				E9DBE1671B7DFAD400C9A9B5 /* module.modulemap */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55030BDE1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
+				E9DBE1651B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */,
 				9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */,
 				55030BDA1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
@@ -117,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
+				E9DBE1661B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */,
 				9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */,
 				55030BDB1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
@@ -328,7 +336,7 @@
 		9B44A4DA1B00570F00C9969A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -341,6 +349,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
 				PRODUCT_NAME = MMWormhole;
 				SKIP_INSTALL = YES;
 			};
@@ -349,7 +358,7 @@
 		9B44A4DB1B00570F00C9969A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -358,6 +367,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
 				PRODUCT_NAME = MMWormhole;
 				SKIP_INSTALL = YES;
 			};
@@ -366,6 +376,7 @@
 		9B44A5161B00572000C9969A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -377,6 +388,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MMWormhole/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
 				PRODUCT_NAME = MMWormhole;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -386,6 +398,7 @@
 		9B44A5171B00572000C9969A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -393,6 +406,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MMWormhole/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
 				PRODUCT_NAME = MMWormhole;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

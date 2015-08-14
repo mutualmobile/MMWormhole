@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MMWormhole. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for MMWormhole.
 FOUNDATION_EXPORT double MMWormholeVersionNumber;
@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double MMWormholeVersionNumber;
 //! Project version string for MMWormhole.
 FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <MMWormhole/PublicHeader.h>
-
-
+#import <MMWormhole/MMWormhole.h>
+#import <MMWormhole/MMWormholeFileTransiting.h>
+#import <MMWormhole/MMWormholeCoordinatedFileTransiting.h>
