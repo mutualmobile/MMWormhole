@@ -19,6 +19,8 @@
 		9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
 		9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51E1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
+		AE46A9511B7E58B70032B6AB /* MMWormholeTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = AE46A9501B7E58B70032B6AB /* MMWormholeTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE46A9521B7E58B70032B6AB /* MMWormholeTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = AE46A9501B7E58B70032B6AB /* MMWormholeTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		9B44A4801B0055F500C9969A /* MMWormhole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 		9B44A4C61B00570E00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B44A5021B00571F00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE46A9501B7E58B70032B6AB /* MMWormholeTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeTransiting.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 			children = (
 				9B44A47F1B0055F500C9969A /* MMWormhole.h */,
 				9B44A4801B0055F500C9969A /* MMWormhole.m */,
+				AE46A9501B7E58B70032B6AB /* MMWormholeTransiting.h */,
 				55030BD61B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h */,
 				55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */,
 				55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */,
@@ -108,6 +112,7 @@
 			files = (
 				55030BDE1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
 				9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */,
+				AE46A9511B7E58B70032B6AB /* MMWormholeTransiting.h in Headers */,
 				55030BDA1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +123,7 @@
 			files = (
 				55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
 				9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */,
+				AE46A9521B7E58B70032B6AB /* MMWormholeTransiting.h in Headers */,
 				55030BDB1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +247,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -288,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -328,7 +336,6 @@
 		9B44A4DA1B00570F00C9969A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -349,7 +356,6 @@
 		9B44A4DB1B00570F00C9969A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

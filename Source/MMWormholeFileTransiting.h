@@ -21,7 +21,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MMWormhole.h"
+#import <Foundation/Foundation.h>
+#import "MMWormholeTransiting.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
