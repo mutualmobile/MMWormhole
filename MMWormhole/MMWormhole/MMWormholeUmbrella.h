@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+//! Project version number for MMWormhole.
+FOUNDATION_EXPORT double MMWormholeVersionNumber;
+
+//! Project version string for MMWormhole.
+FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
+
 #import <MMWormhole/MMWormhole.h>
 #import <MMWormhole/MMWormholeFileTransiting.h>
 #import <MMWormhole/MMWormholeCoordinatedFileTransiting.h>
