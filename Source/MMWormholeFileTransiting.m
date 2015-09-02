@@ -35,6 +35,12 @@
 
 @implementation MMWormholeFileTransiting
 
+- (instancetype)init {
+	// Can't call this but it's the designated initializer for NSObject so we have to provide it.
+	NSLog(@"Don't call MMWormholeFileTransiting init, use initWithApplicationGroupIdentifier:optionalDirectory:");
+	return [self initWithApplicationGroupIdentifier:@"dev.null" optionalDirectory:nil];
+}
+
 - (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
                        optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
