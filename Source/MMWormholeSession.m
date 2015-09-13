@@ -44,8 +44,43 @@
     return sharedSession;
 }
 
+
+#pragma mark - Public Interface Methods
+
 - (void)activateSessionListening {
     [self.session activateSession];
+}
+
+
+#pragma mark - Subclass Methods
+
+- (void)passMessageObject:(nullable id <NSCoding>)messageObject identifier:(nullable NSString *)identifier {
+    NSAssert(NO, @"Message passing is not supported in MMWormholeSession. Please use MMWormhole with an MMWormholeSessionTransiting type to pass messages using WatchConnectivity.");
+}
+
+
+- (nullable id)messageWithIdentifier:(nullable NSString *)identifier {
+    NSAssert(NO, @"Message passing is not supported in MMWormholeSession. Please use MMWormhole with an MMWormholeSessionTransiting type to pass messages using WatchConnectivity.");
+    return nil;
+}
+
+- (void)clearMessageContentsForIdentifier:(nullable NSString *)identifier {
+    NSAssert(NO, @"Message passing is not supported in MMWormholeSession. Please use MMWormhole with an MMWormholeSessionTransiting type to pass messages using WatchConnectivity.");
+}
+
+- (void)clearAllMessageContents {
+    NSAssert(NO, @"Message passing is not supported in MMWormholeSession. Please use MMWormhole with an MMWormholeSessionTransiting type to pass messages using WatchConnectivity.");
+}
+
+
+#pragma mark - Private Subclass Methods
+
+- (void)registerForNotificationsWithIdentifier:(nullable NSString *)identifier {
+    // MMWormholeSession uses WatchConnectivity delegate callbacks and does not support Darwin Notification Center notifications.
+}
+
+- (void)unregisterForNotificationsWithIdentifier:(nullable NSString *)identifier {
+    // MMWormholeSession uses WatchConnectivity delegate callbacks and does not support Darwin Notification Center notifications.
 }
 
 

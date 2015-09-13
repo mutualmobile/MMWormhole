@@ -58,6 +58,11 @@
         
         if ([self.session isReachable]) {
             NSString *tempDir = [self messagePassingDirectoryPath];
+            
+            if (tempDir == nil) {
+                tempDir = NSTemporaryDirectory();
+            }
+            
             NSString *tempPath = [tempDir stringByAppendingPathComponent:identifier];
             NSURL *tempURL = [NSURL fileURLWithPath:tempPath];
             
