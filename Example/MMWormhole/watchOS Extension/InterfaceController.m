@@ -31,8 +31,8 @@
     self.listeningWormhole = [MMWormholeSession sharedListeningSession];
     
     // Initialize the wormhole
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:nil
-                                                         optionalDirectory:nil
+    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
+                                                         optionalDirectory:@"wormhole"
                                                             transitingType:MMWormholeTransitingTypeSessionContext];
 
     // Obtain an initial value for the selection message from the wormhole
@@ -58,7 +58,6 @@
     // the WatchConnectivity framework.
     [self.listeningWormhole activateSessionListening];
 }
-
 
 // Pass messages each time a button is tapped using the identifier button
 // The messages contain a single number value with the buttonNumber key
