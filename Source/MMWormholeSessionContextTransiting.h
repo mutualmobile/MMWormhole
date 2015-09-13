@@ -23,6 +23,22 @@
 
 #import "MMWormholeFileTransiting.h"
 
+/**
+ This class provides support for the WatchConnectivity framework's Application Context message
+ reading and writing ability. This class will pass it's messages directly via the
+ -updateApplicationContext method, and read message values from application context.
+ 
+ This class also uses a local mutable dictionary for maintaining a more consistent version of your
+ wormhole-based application context. The contents of the local dictionary are merged with the
+ application context for passing messages. Clearing message contents on a wormhole using this
+ transiting implementation will clear both the applicationContext as well as the local mutable
+ dictionary.
+ 
+ @discussion This class should be treated as the default MMWormholeTransiting implementation for
+ applications wanting to leverage the WatchConnectivity framework within MMWormhole. The application
+ context provides the best of both real time message passing and baked in state persistence for
+ setting up your UI.
+ */
 @interface MMWormholeSessionContextTransiting : MMWormholeFileTransiting
 
 @end

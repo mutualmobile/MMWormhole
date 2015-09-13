@@ -23,6 +23,11 @@
 
 #import "MMWormholeFileTransiting.h"
 
+/**
+ This class inherits from the default implementation of the MMWormholeTransiting protocol 
+ and implements message transiting in a similar way but using NSFileCoordinator for its file
+ reading and writing.
+ */
 @interface MMWormholeCoordinatedFileTransiting : MMWormholeFileTransiting
 
 @end
