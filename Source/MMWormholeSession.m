@@ -23,148 +23,31 @@
 
 #import "MMWormholeSession.h"
 
-#import "MMWormholeFileTransiting.h"
-#import <WatchConnectivity/WatchConnectivity.h>
-
-@interface MMWormholeSessionTransiting : MMWormholeFileTransiting <WCSessionDelegate>
-@property (nonatomic, strong) WCSession *session;
-
-// These properties are required for a workaround that is explained below.
-@property (nonatomic) NSTimeInterval lastUpdate;
-@property (nonatomic, strong) NSMutableDictionary *lastContext;
-@end
-
-@implementation MMWormholeSessionTransiting
-
-- (instancetype)initWithSession:(WCSession *)session {
-    if ((self = [super initWithApplicationGroupIdentifier:nil optionalDirectory:nil])) {
-        _session = session;
-    }
-    
-    return self;
-}
-
-
-#pragma mark - MMWormholeFileTransiting Subclass Methods
-
-- (nullable NSString *)messagePassingDirectoryPath {
-    return nil;
-}
-
-
-#pragma mark - MMWormholeTransiting Protocol Methods
-
-- (BOOL)writeMessageObject:(id<NSCoding>)messageObject forIdentifier:(NSString *)identifier {
-    if (identifier == nil) {
-        return NO;
-    }
-    
-    if (messageObject) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
-        
-        if (data == nil) {
-            return NO;
-        }
-        
-        if ([self.session isReachable]) {
-            [self.session sendMessage:@{identifier : data} replyHandler:nil errorHandler:nil];
-        }
-        
-        // This section of code is required for a workaround that is explained below.
-        if (self.lastContext == nil) {
-            self.lastContext = [@{} mutableCopy];
-        }
-        
-        NSMutableDictionary *currentContext = [self.session.applicationContext mutableCopy];
-        
-        // This line of code is required for a workaround that is explained below.
-        [currentContext addEntriesFromDictionary:self.lastContext];
-        
-        currentContext[identifier] = data;
-        
-        // This line of code is required for a workaround that is explained below.
-        self.lastContext = currentContext;
-        
-        /**
-         This section of code is a workaround for a bug in WatchConnectivity that clogs the channel
-         if updateApplicationContext is called too frequently. In our testing, a 5 second interval
-         seems to result in the best performance. This has been filed as a radar (21364664) and is
-         expected to be fixed in an upcoming beta release. Once fixed, this workaround should no
-         longer be required and will be removed.
-         */
-        
-        if ([NSDate timeIntervalSinceReferenceDate] - 5 < self.lastUpdate && self.lastUpdate != 0) {
-            return NO;
-        }
-        
-        // This line of code is required for a workaround that is explained above.
-        self.lastUpdate = [NSDate timeIntervalSinceReferenceDate];
-        
-        NSError *error = nil;
-        
-        BOOL success = [self.session updateApplicationContext:currentContext error:&error];
-        
-        if (success == NO || error != nil) {
-
-        }
-    }
-    
-    return NO;
-}
-
-- (nullable id<NSCoding>)messageObjectForIdentifier:(nullable NSString *)identifier {
-    NSDictionary *currentContext = self.session.receivedApplicationContext;
-    NSData *data = currentContext[identifier];
-    
-    if (data == nil) {
-        return nil;
-    }
-    
-    id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    return messageObject;
-}
-
-- (void)deleteContentForIdentifier:(nullable NSString *)identifier {
-    NSMutableDictionary *currentContext = [self.session.applicationContext mutableCopy];
-    [currentContext removeObjectForKey:identifier];
-    [self.session updateApplicationContext:currentContext error:nil];
-}
-
-- (void)deleteContentForAllMessages {
-    [self.session updateApplicationContext:@{} error:nil];
-}
-
-@end
-
-
-@interface MMWormholeSession () <WCSessionDelegate>
+@interface MMWormholeSession ()
 @property (nonatomic, strong) WCSession *session;
 @end
 
 @implementation MMWormholeSession
 
-+ (instancetype)sharedSession {
++ (instancetype)sharedListeningSession {
     static MMWormholeSession *sharedSession = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedSession = [[self alloc] init];
+        sharedSession = [[self alloc] initWithApplicationGroupIdentifier:nil
+                                                       optionalDirectory:nil];
+        
+        sharedSession.session = [WCSession defaultSession];
+        sharedSession.session.delegate = self;
+        
+        sharedSession.wormholeMessenger = nil;
     });
     
     return sharedSession;
 }
 
-- (instancetype)init {
-    if ((self = [super initWithApplicationGroupIdentifier:nil optionalDirectory:nil])) {
-        _session = [WCSession defaultSession];
-        _session.delegate = self;
-        [_session activateSession];
-        
-        self.wormholeMessenger = [[MMWormholeSessionTransiting alloc] initWithSession:[WCSession defaultSession]];
-    }
-    
-    return self;
+- (void)activateSessionListening {
+    [self.session activateSession];
 }
 
 
@@ -177,6 +60,24 @@
         
         [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
     }
+}
+
+- (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *, id> *)applicationContext {
+    for (NSString *identifier in applicationContext.allKeys) {
+        NSData *data = applicationContext[identifier];
+        id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
+    }
+}
+
+- (void)session:(nonnull WCSession *)session didReceiveFile:(nonnull WCSessionFile *)file {
+    NSString *identifier = file.metadata[@"identifier"];
+    
+    NSData *data = [NSData dataWithContentsOfURL:file.fileURL];
+    id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
 }
 
 @end

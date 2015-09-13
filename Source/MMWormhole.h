@@ -23,13 +23,21 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MMWormholeTransiting;
+#import "MMWormholeCoordinatedFileTransiting.h"
+#import "MMWormholeFileTransiting.h"
+#import "MMWormholeSessionContextTransiting.h"
+#import "MMWormholeSessionFileTransiting.h"
+#import "MMWormholeSessionMessageTransiting.h"
+#import "MMWormholeTransiting.h"
 
-@protocol MMWormholeTransitingDelegate <NSObject>
+typedef NS_ENUM(NSInteger, MMWormholeTransitingType) {
+    MMWormholeTransitingTypeFile = 0,
+    MMWormholeTransitingTypeCoordinatedFile,
+    MMWormholeTransitingTypeSessionContext,
+    MMWormholeTransitingTypeSessionMessage,
+    MMWormholeTransitingTypeSessionFile
+};
 
-- (void)notifyListenerForMessageWithIdentifier:(nullable NSString *)identifier message:(nullable id<NSCoding>)message;
-
-@end
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -110,6 +118,22 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
                                  optionalDirectory:(nullable NSString *)directory NS_DESIGNATED_INITIALIZER;
 
 /**
+ Optional Initializer. This method is provided for convenience while creating MMWormhole instances
+ with custom message transiting options. By default MMWormhole will use the 
+ MMWormholeTransitingTypeFile option when creating a Wormhole, however, this method can be used to
+ easily choose a different transiting class at initialization time. You can always initialize a
+ different class that implements the MMWormholeTransiting class later and replace the Wormhole's
+ 'wormholeMessenger' property to change the transiting type at a later time.
+ 
+ @param identifier An application group identifier
+ @param directory An optional directory to read/write messages
+ @param transitingType A type of wormhole message transiting that will be used for message passing.
+*/
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
+                                 optionalDirectory:(nullable NSString *)directory
+                                    transitingType:(MMWormholeTransitingType)transitingType;
+
+/**
  This method passes a message object associated with a given identifier. This is the primary means
  of passing information through the wormhole.
  
@@ -172,52 +196,6 @@ FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
  @param identifier The identifier for the message
  */
 - (void)stopListeningForMessageWithIdentifier:(nullable NSString *)identifier;
-
-@end
-
-
-/**
- This protocol defines the public interface for classes wishing to support the transiting of data
- between two sides of the wormhole. Transiting is defined as passage between two points, and in this
- case it involves both the reading and writing of messages as well as the deletion of message
- contents.
- */
-@protocol MMWormholeTransiting <NSObject>
-
-/**
- This method is responsible for writing a given message object in a persisted format for a given
- identifier. The method should return YES if the message was successfully saved. The message object 
- may be nil, in which case YES should also be returned. Returning YES from this method results in a 
- notification being fired which will trigger the corresponding listener block for the given 
- identifier.
- 
- @param messageObject The message object to be passed.
- This object may be nil. In this the method should return YES.
- @param identifier The identifier for the message
- @return YES indicating that a notification should be sent and NO otherwise
- */
-- (BOOL)writeMessageObject:(nullable id<NSCoding>)messageObject forIdentifier:(NSString *)identifier;
-
-/**
- This method is responsible for reading and returning the contents of a given message. It should
- understand the structure of messages saved by the implementation of the above writeMessageObject
- method and be able to read those messages and return their contents.
- 
- @param identifier The identifier for the message
-*/
-- (nullable id<NSCoding>)messageObjectForIdentifier:(nullable NSString *)identifier;
-
-/**
- This method should clear the persisted contents of a specific message with a given identifier.
- 
- @param identifier The identifier for the message
- */
-- (void)deleteContentForIdentifier:(nullable NSString *)identifier;
-
-/**
- This method should clear the contents of all messages passed to the wormhole.
- */
-- (void)deleteContentForAllMessages;
 
 @end
 
