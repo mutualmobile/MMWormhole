@@ -14,6 +14,8 @@
 @interface InterfaceController()
 
 @property (nonatomic, strong) MMWormhole *wormhole;
+@property (nonatomic, strong) MMWormholeSession *listeningWormhole;
+
 @property (nonatomic, weak) IBOutlet WKInterfaceLabel *selectionLabel;
 
 @end
@@ -24,10 +26,15 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    // Initialize the wormhole
-    self.wormhole = [MMWormholeSession sharedSession];
-
+    // You are required to initialize the shared listening wormhole before creating a
+    // WatchConnectivity session transiting wormhole, as we are below.
+    self.listeningWormhole = [MMWormholeSession sharedListeningSession];
     
+    // Initialize the wormhole
+    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:nil
+                                                         optionalDirectory:nil
+                                                            transitingType:MMWormholeTransitingTypeSessionContext];
+
     // Obtain an initial value for the selection message from the wormhole
     id messageObject = [self.wormhole messageWithIdentifier:@"selection"];
     NSString *string = [messageObject valueForKey:@"selectionString"];
@@ -39,13 +46,17 @@
     // Listen for changes to the selection message. The selection message contains a string value
     // identified by the selectionString key. Note that the type of the key is included in the
     // name of the key.
-    [self.wormhole listenForMessageWithIdentifier:@"selection" listener:^(id messageObject) {
+    [self.listeningWormhole listenForMessageWithIdentifier:@"selection" listener:^(id messageObject) {
         NSString *string = [messageObject valueForKey:@"selectionString"];
         
         if (string != nil) {
             [self.selectionLabel setText:string];
         }
     }];
+    
+    // Make sure we are activating the listening wormhole so that it will receive new messages from
+    // the WatchConnectivity framework.
+    [self.listeningWormhole activateSessionListening];
 }
 
 
