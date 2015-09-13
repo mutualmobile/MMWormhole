@@ -38,9 +38,7 @@
                                                        optionalDirectory:nil];
         
         sharedSession.session = [WCSession defaultSession];
-        sharedSession.session.delegate = self;
-        
-        sharedSession.wormholeMessenger = nil;
+        sharedSession.session.delegate = sharedSession;
     });
     
     return sharedSession;
