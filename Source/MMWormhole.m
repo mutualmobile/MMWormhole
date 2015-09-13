@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 
 #import "MMWormhole.h"
-#import "MMWormholeFileTransiting.h"
 
 #if !__has_feature(objc_arc)
 #error This class requires automatic reference counting
@@ -76,6 +75,38 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
                                                  selector:@selector(didReceiveMessageNotification:)
                                                      name:MMWormholeNotificationName
                                                    object:self];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
+                                 optionalDirectory:(nullable NSString *)directory
+                                    transitingType:(MMWormholeTransitingType)transitingType {
+    if ((self = [self initWithApplicationGroupIdentifier:identifier optionalDirectory:directory])) {
+        switch (transitingType) {
+            case MMWormholeTransitingTypeFile:
+                // Default
+                break;
+            case MMWormholeTransitingTypeCoordinatedFile:
+                self.wormholeMessenger = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                       optionalDirectory:directory];
+                break;
+            case MMWormholeTransitingTypeSessionContext:
+                self.wormholeMessenger = [[MMWormholeSessionContextTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                      optionalDirectory:directory];
+                break;
+            case MMWormholeTransitingTypeSessionFile:
+                self.wormholeMessenger = [[MMWormholeSessionFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                   optionalDirectory:directory];
+                break;
+            case MMWormholeTransitingTypeSessionMessage:
+                self.wormholeMessenger = [[MMWormholeSessionMessageTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                      optionalDirectory:directory];
+                break;
+            default:
+                break;
+        }
     }
     
     return self;
