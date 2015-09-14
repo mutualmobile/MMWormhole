@@ -61,8 +61,8 @@
             self.lastContext = [self.session.applicationContext mutableCopy];
         }
         
-        NSMutableDictionary *currentContext = [self.lastContext mutableCopy];
-        [currentContext addEntriesFromDictionary:self.session.applicationContext];
+        NSMutableDictionary *currentContext = [self.session.applicationContext mutableCopy];
+        [currentContext addEntriesFromDictionary:self.lastContext];
         currentContext[identifier] = data;
         
         self.lastContext = currentContext;
