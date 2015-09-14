@@ -111,6 +111,24 @@
     id messageObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
     [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
+    
+    MMWormholeFileTransiting *wormholeMessenger = self.wormholeMessenger;
+    
+    if ([wormholeMessenger respondsToSelector:@selector(filePathForIdentifier:)] == NO) {
+        return;
+    }
+    
+    if (messageObject) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+        
+        NSString *filePath = [wormholeMessenger filePathForIdentifier:identifier];
+        
+        if (data == nil || filePath == nil) {
+            return;
+        }
+        
+        [data writeToFile:filePath atomically:YES];
+    }
 }
 
 @end
