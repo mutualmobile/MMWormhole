@@ -25,9 +25,13 @@
 
 #import "MMWormholeCoordinatedFileTransiting.h"
 #import "MMWormholeFileTransiting.h"
+
+#if ( ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 ) || TARGET_OS_WATCH )
 #import "MMWormholeSessionContextTransiting.h"
 #import "MMWormholeSessionFileTransiting.h"
 #import "MMWormholeSessionMessageTransiting.h"
+#endif
+
 #import "MMWormholeTransiting.h"
 
 typedef NS_ENUM(NSInteger, MMWormholeTransitingType) {
@@ -40,12 +44,6 @@ typedef NS_ENUM(NSInteger, MMWormholeTransitingType) {
 
 
 NS_ASSUME_NONNULL_BEGIN
-
-//! Project version number for MMWormhole.
-FOUNDATION_EXPORT double MMWormholeVersionNumber;
-
-//! Project version string for MMWormhole.
-FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
 
 /**
  This class creates a wormhole between a containing iOS application and an extension. The wormhole
