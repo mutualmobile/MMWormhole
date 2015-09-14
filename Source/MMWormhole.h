@@ -45,12 +45,6 @@ typedef NS_ENUM(NSInteger, MMWormholeTransitingType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-//! Project version number for MMWormhole.
-FOUNDATION_EXPORT double MMWormholeVersionNumber;
-
-//! Project version string for MMWormhole.
-FOUNDATION_EXPORT const unsigned char MMWormholeVersionString[];
-
 /**
  This class creates a wormhole between a containing iOS application and an extension. The wormhole
  is meant to be used to pass data or commands back and forth between the two locations. The effect
