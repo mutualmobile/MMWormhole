@@ -36,11 +36,8 @@
 @implementation MMWormholeFileTransiting
 
 - (instancetype)init {
-    if ((self = [self init])) {
-        
-    }
-    
-    return nil;
+    return [self initWithApplicationGroupIdentifier:@"dev.assertion.nonDesignatedInitializer"
+                                  optionalDirectory:nil];
 }
 
 - (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
@@ -62,8 +59,7 @@
 #pragma mark - Private Check App Group Capabilities
 
 - (void)checkAppGroupCapabilities {
-    NSURL *appGroupContainer = [self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier];
-    NSAssert(appGroupContainer != nil, @"App Group Capabilities may not be correctly configured for your project, or your appGroupIdentifier may not match your project settings. Check Project->Capabilities->App Groups. Three checkmarks should be displayed in the steps section, and the value passed in for your appGroupIdentifier should match the setting in your project file.");
+    NSAssert([self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier] != nil, @"App Group Capabilities may not be correctly configured for your project, or your appGroupIdentifier may not match your project settings. Check Project->Capabilities->App Groups. Three checkmarks should be displayed in the steps section, and the value passed in for your appGroupIdentifier should match the setting in your project file.");
 }
 
 
