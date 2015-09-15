@@ -93,7 +93,10 @@
                                                         object:wormhole1
                                                       userInfo:@{@"identifier" : @"testIdentifier"}];
     
-    XCTAssertTrue( wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        XCTAssertTrue( wormhole1ListenerCounter == 1 && wormhole2ListenerCounter == 0 , @"Valid multiple listener blocks  with multiple instances should only be called once, on wormhole1." );
+    });
 }
 
 - (void)testMessagePassingAndListeningWithMultipleInstances {
