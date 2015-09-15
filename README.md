@@ -35,7 +35,7 @@ The MMWormhole Example app will only work with your shared App Group identifiers
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
 ```Ruby
-pod 'MMWormhole', '~> 1.2.0'
+pod 'MMWormhole', '~> 1.3.0'
 ```
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)<br/>
@@ -74,6 +74,7 @@ Objective-C:
 [self.wormhole passMessageObject:@{@"titleString" : title} 
                       identifier:@"messageIdentifier"];
 ```
+
 Swift:
 ```swift
 wormhole.passMessageObject("titleString", identifier: "messageIdentifier")
@@ -107,15 +108,48 @@ wormhole.listenForMessageWithIdentifier("messageIdentifier", listener: { (messag
 })
 ```
 
-
 ### Designing Your Communication Scheme
 
 You can think of message passing between apps and extensions sort of like a web service. The web service has endpoints that you can read and write. The message identifiers for your MMWormhole messages can be thought of in much the same way. A great practice is to design very clear message identifiers so that you immediately know when reading your code who sent the message and why, and what the possible contents of the message might be. Just like you would design a web service with clear semantics, you should do the same with your wormhole messaging scheme.
 
+### Communication with WatchConnectivity
+
+The design of your communication scheme is even more important when you need to support watchOS 2. MMWormhole supports the [WatchConnectivity](https://developer.apple.com/library/prerelease/watchos/documentation/WatchConnectivity/Reference/WatchConnectivity_framework/index.html#//apple_ref/doc/uid/TP40015269) framework provided by Apple as an easy way to get up and running quickly with a basic implementation of WatchConnectivity. This support is not intended to replace WatchConnectivity entirely, and it's important to carefully consider your watch app's communication system to see where MMWormhole will fit best. 
+
+Here are two things you need to know if you want to use WatchConnectivity support in your app:
+
+- [MMWormholeSession](http://cocoadocs.org/docsets/MMWormhole/1.3.0/Classes/MMWormholeSession.html) is a singleton subclass of MMWormhole that supports listening for WatchConnectivity messages. It should be used as the listener for all MMWormhole messages you expect to receive from the WatchConnectivity framework. Be sure to activate the session once your listeners are set so that you can begin receiving message notifications.
+
+- Use the MMWormholeSessionTransiting types described below when creating your wormholes, but be careful not to send too many messages at once. You can easily overload the pipeline by sending too many messages at once.
+
+### Message Transiting Options
+
+The mechanism by which data flows through MMWormhole is defined by the [MMWormholeTransiting](http://cocoadocs.org/docsets/MMWormhole/1.3.0/Classes/MMWormholeTransiting.html) protocol. The default implementation of the protocol is called [MMWormholeFileTransiting](http://cocoadocs.org/docsets/MMWormhole/1.3.0/Classes/MMWormholeFileTransiting.html), which reads and writes messages as archived data files in the app groups shared container. Users of MMWormhole can implement their own version of this protocol to change the message passing behavior.
+
+There are three new implementations of the MMWormholeTransiting protocol that support the WCSession application context, message, and file transfer systems. You may only use one form of transiting with a wormhole at a time, so you need to consider which type of messaging system best fits a given part of your application.
+
+Most apps will find the application context system to be a good balance between real time messaging and simple persistence, so we recommend [MMWormholeSessionContextTransiting](http://cocoadocs.org/docsets/MMWormhole/1.3.0/Classes/MMWormholeSessionContextTransiting.html) as the best place to start. Check out the [documentation](https://developer.apple.com/library/prerelease/watchos/documentation/WatchConnectivity/Reference/WatchConnectivity_framework/index.html#//apple_ref/doc/uid/TP40015269) and header comments for descriptions about the other messaging types.
+
+You can get started quickly with a wormhole using one of the built in transiting types by calling the optional initializer to set up an instance with the right transiting type for your use case.
+
+Objective-C:
+```objective-c
+self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mutualmobile.wormhole"
+                                                     optionalDirectory:@"wormhole"
+                                                     	transitingType:MMWormholeTransitingTypeSessionContext];
+```
+
+Swift:
+```swift
+let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.mutualmobile.wormhole", 
+								   optionalDirectory: "wormhole"
+								      transitingType: .SessionContext)
+```
 
 ## Requirements
 
 MMWormhole requires iOS 7.0 or higher or OS X 10.10 or higher.
+MMWormholeSession requires iOS 9.0 or higher.
 
 ## Troubleshooting
 
