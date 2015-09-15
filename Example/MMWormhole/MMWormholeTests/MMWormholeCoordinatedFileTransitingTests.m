@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "MMWormholeCoordinatedFileTransiting.h"
+#import "MMWormhole.h"
 
 #define ApplicationGroupIdentifier  @"group.com.mutualmobile.wormhole"
 
