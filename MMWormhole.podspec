@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   s.osx.platform = :osx, '10.10'
   
   s.frameworks = 'Foundation'
+  s.frameworks = 'WatchConnectivity'
   
   s.subspec 'Core' do |core|
     core.source_files = 'Source/*.{h,m}'
