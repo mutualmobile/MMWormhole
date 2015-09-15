@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MMWormhole.h"
+#import "MMWormholeTransiting.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,8 +44,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param identifier An application group identifier
  @param directory An optional directory to read/write messages
  */
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
                                  optionalDirectory:(nullable NSString *)directory NS_DESIGNATED_INITIALIZER;
+
+/**
+ The File Manager associated with this transiting implementation. You can use this property for
+ implementing your own variant of file transiting that needs to customize where and how files are
+ stored.
+ */
+@property (nonatomic, strong, readonly) NSFileManager *fileManager;
 
 /**
  This method returns the full file path for the message passing directory, including the optional

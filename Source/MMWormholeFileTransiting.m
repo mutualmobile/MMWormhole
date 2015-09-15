@@ -29,20 +29,27 @@
 
 @property (nonatomic, copy) NSString *applicationGroupIdentifier;
 @property (nonatomic, copy) NSString *directory;
-@property (nonatomic, strong) NSFileManager *fileManager;
+@property (nonatomic, strong, readwrite) NSFileManager *fileManager;
 
 @end
 
 @implementation MMWormholeFileTransiting
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
-                       optionalDirectory:(nullable NSString *)directory {
+- (instancetype)init {
+    return [self initWithApplicationGroupIdentifier:@"dev.assertion.nonDesignatedInitializer"
+                                  optionalDirectory:nil];
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
+                                 optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         _applicationGroupIdentifier = [identifier copy];
         _directory = [directory copy];
         _fileManager = [[NSFileManager alloc] init];
         
-        [self checkAppGroupCapabilities];
+        if (_applicationGroupIdentifier) {
+            [self checkAppGroupCapabilities];
+        }
     }
     
     return self;
@@ -52,8 +59,7 @@
 #pragma mark - Private Check App Group Capabilities
 
 - (void)checkAppGroupCapabilities {
-    NSURL *appGroupContainer = [self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier];
-    NSAssert(appGroupContainer != nil, @"App Group Capabilities may not be correctly configured for your project, or your appGroupIdentifier may not match your project settings. Check Project->Capabilities->App Groups. Three checkmarks should be displayed in the steps section, and the value passed in for your appGroupIdentifier should match the setting in your project file.");
+    NSAssert([self.fileManager containerURLForSecurityApplicationGroupIdentifier:self.applicationGroupIdentifier] != nil, @"App Group Capabilities may not be correctly configured for your project, or your appGroupIdentifier may not match your project settings. Check Project->Capabilities->App Groups. Three checkmarks should be displayed in the steps section, and the value passed in for your appGroupIdentifier should match the setting in your project file.");
 }
 
 
@@ -119,7 +125,13 @@
         return nil;
     }
     
-    NSData *data = [NSData dataWithContentsOfFile:[self filePathForIdentifier:identifier]];
+    NSString *filePath = [self filePathForIdentifier:identifier];
+    
+    if (filePath == nil) {
+        return nil;
+    }
+    
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     if (data == nil) {
         return nil;

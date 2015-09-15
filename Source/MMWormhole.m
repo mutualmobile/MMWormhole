@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 
 #import "MMWormhole.h"
-#import "MMWormholeFileTransiting.h"
 
 #if !__has_feature(objc_arc)
 #error This class requires automatic reference counting
@@ -57,7 +56,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 
 #pragma clang diagnostic pop
 
-- (instancetype)initWithApplicationGroupIdentifier:(NSString *)identifier
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
                                  optionalDirectory:(nullable NSString *)directory {
     if ((self = [super init])) {
         
@@ -76,6 +75,44 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
                                                  selector:@selector(didReceiveMessageNotification:)
                                                      name:MMWormholeNotificationName
                                                    object:self];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithApplicationGroupIdentifier:(nullable NSString *)identifier
+                                 optionalDirectory:(nullable NSString *)directory
+                                    transitingType:(MMWormholeTransitingType)transitingType {
+    if ((self = [self initWithApplicationGroupIdentifier:identifier optionalDirectory:directory])) {
+        switch (transitingType) {
+            case MMWormholeTransitingTypeFile:
+                // Default
+                break;
+            case MMWormholeTransitingTypeCoordinatedFile:
+                self.wormholeMessenger = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                       optionalDirectory:directory];
+                break;
+            case MMWormholeTransitingTypeSessionContext:
+#if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 )
+                self.wormholeMessenger = [[MMWormholeSessionContextTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                      optionalDirectory:directory];
+#endif
+                break;
+            case MMWormholeTransitingTypeSessionFile:
+#if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 )
+                self.wormholeMessenger = [[MMWormholeSessionFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                   optionalDirectory:directory];
+#endif
+                break;
+            case MMWormholeTransitingTypeSessionMessage:
+#if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 )
+                self.wormholeMessenger = [[MMWormholeSessionMessageTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                      optionalDirectory:directory];
+#endif
+                break;
+            default:
+                break;
+        }
     }
     
     return self;
@@ -134,24 +171,30 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
-    typedef void (^MessageListenerBlock)(id messageObject);
-    
     NSDictionary *userInfo = notification.userInfo;
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-        MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
+        id messageObject = [self.wormholeMessenger messageObjectForIdentifier:identifier];
 
-        if (listenerBlock) {
-            id messageObject = [self.wormholeMessenger messageObjectForIdentifier:identifier];
-
-            listenerBlock(messageObject);
-        }
+        [self notifyListenerForMessageWithIdentifier:identifier message:messageObject];
     }
 }
 
 - (id)listenerBlockForIdentifier:(NSString *)identifier {
     return [self.listenerBlocks valueForKey:identifier];
+}
+
+- (void)notifyListenerForMessageWithIdentifier:(nullable NSString *)identifier message:(nullable id<NSCoding>)message {
+    typedef void (^MessageListenerBlock)(id messageObject);
+
+    MessageListenerBlock listenerBlock = [self listenerBlockForIdentifier:identifier];
+    
+    if (listenerBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            listenerBlock(message);
+        });
+    }
 }
 
 
