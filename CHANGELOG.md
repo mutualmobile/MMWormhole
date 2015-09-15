@@ -1,3 +1,12 @@
+##[1.3.0](https://github.com/mutualmobile/MMWormhole/milestones/1.3.0) (Tuesday, September 15th, 2015)
+**NEW**
+* Added support for the WatchConnectivity framework. (Conrad Stoll)
+
+**Fixed**
+* **FIXED** an issue ([#53](https://github.com/mutualmobile/MMWormhole/pull/53)) with an assertion warning on release builds. (Timothy Sanders)
+* **FIXED** an issue ([#59](https://github.com/mutualmobile/MMWormhole/pull/59)) with the Carthage build configuration. (Thomas Guthrie, Stephen Wu)
+
+
 ##[1.2.0](https://github.com/mutualmobile/MMWormhole/milestones/1.2.0) (Tuesday, June 2nd, 2015)
 **NEW**
 * Added support for sending a notification by passing nil as the message. (Felix Lamouroux)

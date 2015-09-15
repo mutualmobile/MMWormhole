@@ -15,10 +15,22 @@
 		55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55030BE01B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */; };
 		55030BE11B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */; };
+		55AB6EF31BA77D8F003908DC /* MMWormholeSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EEA1BA77D8F003908DC /* MMWormholeSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55AB6EF51BA77D8F003908DC /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB6EEB1BA77D8F003908DC /* MMWormholeSession.m */; settings = {ASSET_TAGS = (); }; };
+		55AB6EF71BA77D8F003908DC /* MMWormholeSessionContextTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EEC1BA77D8F003908DC /* MMWormholeSessionContextTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55AB6EF91BA77D8F003908DC /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB6EED1BA77D8F003908DC /* MMWormholeSessionContextTransiting.m */; settings = {ASSET_TAGS = (); }; };
+		55AB6EFB1BA77D8F003908DC /* MMWormholeSessionFileTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EEE1BA77D8F003908DC /* MMWormholeSessionFileTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55AB6EFD1BA77D8F003908DC /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB6EEF1BA77D8F003908DC /* MMWormholeSessionFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
+		55AB6EFF1BA77D8F003908DC /* MMWormholeSessionMessageTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EF01BA77D8F003908DC /* MMWormholeSessionMessageTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55AB6F011BA77D8F003908DC /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB6EF11BA77D8F003908DC /* MMWormholeSessionMessageTransiting.m */; settings = {ASSET_TAGS = (); }; };
+		55AB6F031BA77D8F003908DC /* MMWormholeTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EF21BA77D8F003908DC /* MMWormholeTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55AB6F041BA77D8F003908DC /* MMWormholeTransiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AB6EF21BA77D8F003908DC /* MMWormholeTransiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
 		9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B44A47F1B0055F500C9969A /* MMWormhole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B44A51E1B00572E00C9969A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B44A4801B0055F500C9969A /* MMWormhole.m */; };
+		E9DBE1651B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9DBE1661B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +38,22 @@
 		55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeCoordinatedFileTransiting.m; sourceTree = "<group>"; };
 		55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeFileTransiting.h; sourceTree = "<group>"; };
 		55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeFileTransiting.m; sourceTree = "<group>"; };
+		55AB6EEA1BA77D8F003908DC /* MMWormholeSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeSession.h; sourceTree = "<group>"; };
+		55AB6EEB1BA77D8F003908DC /* MMWormholeSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeSession.m; sourceTree = "<group>"; };
+		55AB6EEC1BA77D8F003908DC /* MMWormholeSessionContextTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeSessionContextTransiting.h; sourceTree = "<group>"; };
+		55AB6EED1BA77D8F003908DC /* MMWormholeSessionContextTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeSessionContextTransiting.m; sourceTree = "<group>"; };
+		55AB6EEE1BA77D8F003908DC /* MMWormholeSessionFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeSessionFileTransiting.h; sourceTree = "<group>"; };
+		55AB6EEF1BA77D8F003908DC /* MMWormholeSessionFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeSessionFileTransiting.m; sourceTree = "<group>"; };
+		55AB6EF01BA77D8F003908DC /* MMWormholeSessionMessageTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeSessionMessageTransiting.h; sourceTree = "<group>"; };
+		55AB6EF11BA77D8F003908DC /* MMWormholeSessionMessageTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeSessionMessageTransiting.m; sourceTree = "<group>"; };
+		55AB6EF21BA77D8F003908DC /* MMWormholeTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeTransiting.h; sourceTree = "<group>"; };
 		9B44A4661B0055C500C9969A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B44A47F1B0055F500C9969A /* MMWormhole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		9B44A4801B0055F500C9969A /* MMWormhole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 		9B44A4C61B00570E00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B44A5021B00571F00C9969A /* MMWormhole.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMWormhole.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormholeUmbrella.h; path = MMWormhole/MMWormholeUmbrella.h; sourceTree = SOURCE_ROOT; };
+		E9DBE1671B7DFAD400C9A9B5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				9B44A4661B0055C500C9969A /* Info.plist */,
+				E9DBE1641B7DFA7200C9A9B5 /* MMWormholeUmbrella.h */,
+				E9DBE1671B7DFAD400C9A9B5 /* module.modulemap */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -94,6 +119,15 @@
 				55030BD71B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m */,
 				55030BD81B165D8F005EFC19 /* MMWormholeFileTransiting.h */,
 				55030BD91B165D8F005EFC19 /* MMWormholeFileTransiting.m */,
+				55AB6EEA1BA77D8F003908DC /* MMWormholeSession.h */,
+				55AB6EEB1BA77D8F003908DC /* MMWormholeSession.m */,
+				55AB6EEC1BA77D8F003908DC /* MMWormholeSessionContextTransiting.h */,
+				55AB6EED1BA77D8F003908DC /* MMWormholeSessionContextTransiting.m */,
+				55AB6EEE1BA77D8F003908DC /* MMWormholeSessionFileTransiting.h */,
+				55AB6EEF1BA77D8F003908DC /* MMWormholeSessionFileTransiting.m */,
+				55AB6EF01BA77D8F003908DC /* MMWormholeSessionMessageTransiting.h */,
+				55AB6EF11BA77D8F003908DC /* MMWormholeSessionMessageTransiting.m */,
+				55AB6EF21BA77D8F003908DC /* MMWormholeTransiting.h */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -106,9 +140,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AB6EF31BA77D8F003908DC /* MMWormholeSession.h in Headers */,
+				55AB6EF71BA77D8F003908DC /* MMWormholeSessionContextTransiting.h in Headers */,
 				55030BDE1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
+				E9DBE1651B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */,
 				9B44A51B1B00572E00C9969A /* MMWormhole.h in Headers */,
+				55AB6EFF1BA77D8F003908DC /* MMWormholeSessionMessageTransiting.h in Headers */,
+				55AB6EFB1BA77D8F003908DC /* MMWormholeSessionFileTransiting.h in Headers */,
 				55030BDA1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
+				55AB6F031BA77D8F003908DC /* MMWormholeTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55030BDF1B165D8F005EFC19 /* MMWormholeFileTransiting.h in Headers */,
+				E9DBE1661B7DFA7200C9A9B5 /* MMWormholeUmbrella.h in Headers */,
 				9B44A51D1B00572E00C9969A /* MMWormhole.h in Headers */,
 				55030BDB1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.h in Headers */,
+				55AB6F041BA77D8F003908DC /* MMWormholeTransiting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +209,7 @@
 		9B44A4591B0055C500C9969A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = MMWormhole;
 				TargetAttributes = {
 					9B44A4C51B00570E00C9969A = {
@@ -218,9 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AB6EFD1BA77D8F003908DC /* MMWormholeSessionFileTransiting.m in Sources */,
 				55030BDC1B165D8F005EFC19 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
+				55AB6EF51BA77D8F003908DC /* MMWormholeSession.m in Sources */,
+				55AB6EF91BA77D8F003908DC /* MMWormholeSessionContextTransiting.m in Sources */,
 				55030BE01B165D8F005EFC19 /* MMWormholeFileTransiting.m in Sources */,
 				9B44A51C1B00572E00C9969A /* MMWormhole.m in Sources */,
+				55AB6F011BA77D8F003908DC /* MMWormholeSessionMessageTransiting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -259,6 +306,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -288,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -328,7 +377,7 @@
 		9B44A4DA1B00570F00C9969A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -341,6 +390,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMWormhole;
 				SKIP_INSTALL = YES;
 			};
@@ -349,7 +400,7 @@
 		9B44A4DB1B00570F00C9969A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -358,6 +409,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMWormhole;
 				SKIP_INSTALL = YES;
 			};
@@ -366,6 +419,8 @@
 		9B44A5161B00572000C9969A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -377,6 +432,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MMWormhole/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMWormhole;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -386,6 +443,8 @@
 		9B44A5171B00572000C9969A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -393,6 +452,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MMWormhole/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/MMWormhole/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMWormhole;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
