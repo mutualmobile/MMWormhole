@@ -12,11 +12,15 @@ Pod::Spec.new do |s|
 
   s.ios.platform = :ios, '7.0'
   s.osx.platform = :osx, '10.10'
+  s.watchos.platform = :watchos, '2.0'
   
-  s.frameworks = 'Foundation'
-  s.frameworks = 'WatchConnectivity'
+  s.ios.frameworks = 'Foundation', 'WatchConnectivity'
+  s.osx.frameworks = 'Foundation'
+  s.watchos.frameworks = 'Foundation', 'WatchConnectivity'
   
   s.subspec 'Core' do |core|
-    core.source_files = 'Source/*.{h,m}'
+    core.ios.source_files = 'Source/*.{h,m}'
+    core.watchos.source_files = 'Source/*.{h,m}'
+    core.osx.source_files = 'Source/MMWormhole.{h,m}', 'Source/MMWormholeFileTransiting.{h,m}', 'Source/MMWormholeCoordinatedFileTransiting.{h,m}', 'Source/MMWormholeTransiting.h'
   end  
 end
