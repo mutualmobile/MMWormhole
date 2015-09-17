@@ -1,4 +1,4 @@
-##[1.3.0](https://github.com/mutualmobile/MMWormhole/milestones/1.3.0) (Tuesday, September 15th, 2015)
+##[2.0.0](https://github.com/mutualmobile/MMWormhole/milestones/2.0.0) (Tuesday, September 15th, 2015)
 **NEW**
 * Added support for the WatchConnectivity framework. (Conrad Stoll)
 

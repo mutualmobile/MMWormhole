@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MMWormhole'
-  s.version  = '1.3.0'
+  s.version  = '2.0.0'
   s.license  = 'MIT'
   s.summary  = 'Message passing between apps and extensions.'
   s.homepage = 'https://github.com/mutualmobile/MMWormhole'
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.default_subspec = 'Core'
 
-  s.ios.platform = :ios, '7.0'
+  s.ios.platform = :ios, '9.0'
   s.osx.platform = :osx, '10.10'
   s.watchos.platform = :watchos, '2.0'
   
