@@ -142,7 +142,7 @@ self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.c
 Swift:
 ```swift
 let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.mutualmobile.wormhole", 
-								   optionalDirectory: "wormhole"
+								   optionalDirectory: "wormhole",
 								      transitingType: .SessionContext)
 ```
 
