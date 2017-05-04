@@ -110,7 +110,7 @@
             return NO;
         }
         
-        BOOL success = [data writeToFile:filePath atomically:YES];
+        BOOL success = [data writeToFile:filePath atomically:YES encoding: NSUnicodeStringEncoding error:&err];
         
         if (!success) {
             return NO;
