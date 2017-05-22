@@ -30,4 +30,12 @@
  */
 @interface MMWormholeCoordinatedFileTransiting : MMWormholeFileTransiting
 
+/**
+ The default file writing option is NSDataWritingAtomic. It may be important for your app to use
+ additional file writing options to control the specific data protection class for message files
+ being written by your application. When you create your file transiting object, set this property
+ to the additional writing options you want to use.
+ */
+@property (nonatomic, assign) NSDataWritingOptions additionalFileWritingOptions;
+
 @end
