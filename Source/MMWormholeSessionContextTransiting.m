@@ -50,6 +50,10 @@
         return NO;
     }
     
+    if ([WCSession isSupported] == false) {
+        return NO;
+    }
+    
     if (messageObject) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
         
@@ -57,11 +61,17 @@
             return NO;
         }
         
-        if (self.lastContext == nil) {
-            self.lastContext = [self.session.applicationContext mutableCopy];
+        NSMutableDictionary *applicationContext = [self.session.applicationContext mutableCopy];
+        
+        if (applicationContext == nil) {
+            applicationContext = [NSMutableDictionary new];
         }
         
-        NSMutableDictionary *currentContext = [self.session.applicationContext mutableCopy];
+        if (self.lastContext == nil) {
+            self.lastContext = applicationContext;
+        }
+        
+        NSMutableDictionary *currentContext = applicationContext;
         [currentContext addEntriesFromDictionary:self.lastContext];
         currentContext[identifier] = data;
         
