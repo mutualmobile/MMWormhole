@@ -109,10 +109,15 @@
         if (data == nil || filePath == nil) {
             return NO;
         }
-        
-        BOOL success = [data writeToFile:filePath atomically:YES];
-        
+
+		NSError *error = nil;
+        BOOL success = [data
+			writeToFile:filePath
+			options:NSDataWritingAtomic | NSDataWritingFileProtectionCompleteUntilFirstUserAuthentication
+			error:&error
+		];
         if (!success) {
+			NSLog(@"%@: could not save a file with message '%@': %@", self.class, identifier, error);
             return NO;
         }
     }
