@@ -30,7 +30,7 @@ The wormhole also supports CFNotificationCenter Darwin Notifications in an effor
 The MMWormhole Example app will only work with your shared App Group identifiers and Entitlements and is meant purely for reference
 
 ---
-##Installing MMWormhole
+## Installing MMWormhole
 <img src="https://cocoapod-badges.herokuapp.com/v/MMWormhole/badge.png"/><br/>
 You can install Wormhole in your project by using [CocoaPods](https://github.com/cocoapods/cocoapods):
 
