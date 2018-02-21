@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   
   s.default_subspec = 'Core'
 
-  s.ios.platform = :ios, '9.0'
-  s.osx.platform = :osx, '10.10'
-  s.watchos.platform = :watchos, '2.0'
+  s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.10'
+  s.watchos.deployment_target = '2.0'
   
   s.ios.frameworks = 'Foundation', 'WatchConnectivity'
   s.osx.frameworks = 'Foundation'
