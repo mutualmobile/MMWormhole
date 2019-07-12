@@ -35,12 +35,15 @@
     if (messageObject) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
         NSString *filePath = [self filePathForIdentifier:identifier];
-        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-        
-        if (data == nil || filePath == nil || fileURL == nil) {
+        if (data == nil || filePath == nil) {
             return NO;
         }
         
+        //filePath can not be nil, otherwise will crash.
+        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+        if (fileURL == nil) {
+            return NO;
+        }
         NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] initWithFilePresenter:nil];
         NSError *error = nil;
         __block BOOL success = NO;
@@ -71,12 +74,14 @@
     }
     
     NSString *filePath = [self filePathForIdentifier:identifier];
-    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-    
-    if (filePath == nil || fileURL == nil) {
+    if (filePath == nil) {
         return nil;
     }
     
+    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+    if (fileURL == nil) {
+        return nil;
+    }
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] initWithFilePresenter:nil];
     NSError *error = nil;
     __block NSData *data = nil;
