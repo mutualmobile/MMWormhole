@@ -54,7 +54,6 @@
     return YES;
 }
 
-
 - (id<NSCoding>)messageObjectForIdentifier:(NSString *)identifier {
     if (identifier == nil) {
         return nil;
