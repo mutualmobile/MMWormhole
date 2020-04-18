@@ -59,8 +59,6 @@
         return nil;
     }
     
-    //Arguably unsafe as something else could change us on disk
-    //TODO: utilize encrypted container with NSSecureCoding to avoid above
     NSArray *storageArray = [self _arrayForIdentifier:identifier];
     if ([storageArray count] == 0) {
         return nil;
@@ -78,7 +76,6 @@
 #pragma mark - Helper Methods
 
 - (BOOL)_writeArrayToDisk:(NSArray *)array forIdentifier:(NSString *)identifier{
-    //Encode manifest instead of message object
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:array];
     NSString *filePath = [self filePathForIdentifier:identifier];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
