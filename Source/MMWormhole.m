@@ -92,6 +92,10 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
                 self.wormholeMessenger = [[MMWormholeCoordinatedFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
                                                                                                        optionalDirectory:directory];
                 break;
+            case MMWormholeTransitingTypeManifestFile:
+                self.wormholeMessenger = [[MMWormholeManifestFileTransiting alloc] initWithApplicationGroupIdentifier:identifier
+                                                                                                       optionalDirectory:directory];
+                break;
             case MMWormholeTransitingTypeSessionContext:
 #if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 )
                 self.wormholeMessenger = [[MMWormholeSessionContextTransiting alloc] initWithApplicationGroupIdentifier:identifier
