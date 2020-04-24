@@ -36,7 +36,8 @@
         //Insert into manifest
         NSMutableArray *storageArray = nil;
         NSArray *potentialOnDiskArray = (NSArray *)[self _arrayForIdentifier:identifier];
-        if (potentialOnDiskArray) {
+        //Covers edge cases where a crash can occur when changing to using this transit style from other styles
+        if ([potentialOnDiskArray isKindOfClass:[NSArray class]]) {
             storageArray = [NSMutableArray arrayWithArray:potentialOnDiskArray];
         } else {
             storageArray = [[NSMutableArray alloc] init];
