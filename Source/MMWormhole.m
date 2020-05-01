@@ -185,6 +185,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
             for (int i = 0; i < messageCount; i++) {
                 [self _sendNotificationForIdentifier:identifier];
             }
+            return;
         }
 #endif
         [self _sendNotificationForIdentifier:identifier];
