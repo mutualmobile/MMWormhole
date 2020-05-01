@@ -74,6 +74,15 @@
     return messageObject;
 }
 
+
+- (NSInteger)numberOfMessageItemsforIdentifier:(NSString *)identifier {
+    NSArray *array = [self _arrayForIdentifier:identifier];
+    if ([array isKindOfClass:[NSArray class]]) {
+        return array.count;
+    }
+    return 0;
+}
+
 #pragma mark - Helper Methods
 
 - (BOOL)_writeArrayToDisk:(NSArray *)array forIdentifier:(NSString *)identifier{

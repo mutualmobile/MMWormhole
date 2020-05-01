@@ -68,6 +68,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteContentForAllMessages;
 
+@optional
+
+/**
+ This method returns the total number of items on disk we need to dispatch messages for. Used on iOS 13+
+ to enqueue multiple messages for dispatch
+ */
+- (NSInteger)numberOfMessageItemsforIdentifier:(NSString *)identifier;
+
 @end
 
 @protocol MMWormholeTransitingDelegate <NSObject>
