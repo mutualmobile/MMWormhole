@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.ios.source_files = 'Source/*.{h,m}'
     core.watchos.source_files = 'Source/*.{h,m}'
-    core.osx.source_files = 'Source/MMWormhole.{h,m}', 'Source/MMWormholeFileTransiting.{h,m}', 'Source/MMWormholeCoordinatedFileTransiting.{h,m}', 'Source/MMWormholeTransiting.h'
+    core.osx.source_files = 'Source/MMWormhole.{h,m}', 'Source/MMWormholeFileTransiting.{h,m}', 'Source/MMWormholeManifestFileTransiting.{h,m}', 'Source/MMWormholeCoordinatedFileTransiting.{h,m}', 'Source/MMWormholeTransiting.h'
   end  
 end

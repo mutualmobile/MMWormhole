@@ -21,34 +21,34 @@
 		2679DC051A33C45200961787 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2679DC041A33C45200961787 /* Interface.storyboard */; };
 		2679DC071A33C45200961787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2679DC061A33C45200961787 /* Images.xcassets */; };
 		2679DC0A1A33C45200961787 /* MMWormhole WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2679DBEF1A33C45200961787 /* MMWormhole WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		26C184D21BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D31BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D41BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D51BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D71BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D81BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184D91BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DA1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DB1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DC1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DD1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DE1BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; settings = {ASSET_TAGS = (); }; };
-		26C184DF1BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E01BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E11BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E21BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E31BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E41BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E51BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E61BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E71BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E81BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184E91BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184EA1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184EB1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184EC1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; settings = {ASSET_TAGS = (); }; };
-		26C184ED1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; settings = {ASSET_TAGS = (); }; };
+		26C184D21BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; };
+		26C184D31BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; };
+		26C184D41BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; };
+		26C184D51BA5DDA5001A8063 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C41BA5DDA5001A8063 /* MMWormhole.m */; };
+		26C184D61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; };
+		26C184D71BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; };
+		26C184D81BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; };
+		26C184D91BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m */; };
+		26C184DA1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; };
+		26C184DB1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; };
+		26C184DC1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; };
+		26C184DD1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184C81BA5DDA5001A8063 /* MMWormholeFileTransiting.m */; };
+		26C184DE1BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; };
+		26C184DF1BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; };
+		26C184E01BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; };
+		26C184E11BA5DDA5001A8063 /* MMWormholeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CA1BA5DDA5001A8063 /* MMWormholeSession.m */; };
+		26C184E21BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; };
+		26C184E31BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; };
+		26C184E41BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; };
+		26C184E51BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CC1BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m */; };
+		26C184E61BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; };
+		26C184E71BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; };
+		26C184E81BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; };
+		26C184E91BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184CE1BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m */; };
+		26C184EA1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; };
+		26C184EB1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; };
+		26C184EC1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; };
+		26C184ED1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */; };
 		55030BCD1B163680005EFC19 /* MMWormholeFileTransitingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BCC1B163680005EFC19 /* MMWormholeFileTransitingTests.m */; };
 		55030BD51B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55030BD41B165857005EFC19 /* MMWormholeCoordinatedFileTransitingTests.m */; };
 		55D935F41A38A4F200AD1A1C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D935F31A38A4F200AD1A1C /* NotificationCenter.framework */; };
@@ -62,6 +62,10 @@
 		55E647011B2659FB006ADC7F /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E647001B2659FB006ADC7F /* ExtensionDelegate.m */; };
 		55E6470C1B2659FB006ADC7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E6470B1B2659FB006ADC7F /* Assets.xcassets */; };
 		55E647101B2659FB006ADC7F /* watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 55E646E91B2659FB006ADC7F /* watchOS.app */; };
+		B5217F2E244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */; };
+		B5217F2F244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */; };
+		B5217F30244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */; };
+		B5217F31244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +213,8 @@
 		55E6470B1B2659FB006ADC7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E6470D1B2659FB006ADC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E6471C1B265AFA006ADC7F /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
+		B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMWormholeManifestFileTransiting.m; path = ../../../Source/MMWormholeManifestFileTransiting.m; sourceTree = "<group>"; };
+		B5217F2D244B2EEA00D811BC /* MMWormholeManifestFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMWormholeManifestFileTransiting.h; path = ../../../Source/MMWormholeManifestFileTransiting.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +405,8 @@
 				26C184CF1BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.h */,
 				26C184D01BA5DDA5001A8063 /* MMWormholeSessionMessageTransiting.m */,
 				26C184D11BA5DDA5001A8063 /* MMWormholeTransiting.h */,
+				B5217F2D244B2EEA00D811BC /* MMWormholeManifestFileTransiting.h */,
+				B5217F2C244B2EEA00D811BC /* MMWormholeManifestFileTransiting.m */,
 			);
 			name = MMWormhole;
 			sourceTree = "<group>";
@@ -648,6 +656,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -740,6 +749,7 @@
 				26C184DA1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */,
 				26C184E21BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */,
 				2679DBC51A33B7C700961787 /* AppDelegate.m in Sources */,
+				B5217F2E244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */,
 				26C184D61BA5DDA5001A8063 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				26C184D21BA5DDA5001A8063 /* MMWormhole.m in Sources */,
 				2679DBC21A33B7C700961787 /* main.m in Sources */,
@@ -768,6 +778,7 @@
 				26C184E31BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */,
 				26C184D31BA5DDA5001A8063 /* MMWormhole.m in Sources */,
 				2679DBF81A33C45200961787 /* InterfaceController.m in Sources */,
+				B5217F2F244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */,
 				26C184DB1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */,
 				26C184E71BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */,
 			);
@@ -783,6 +794,7 @@
 				26C184E41BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */,
 				26C184D41BA5DDA5001A8063 /* MMWormhole.m in Sources */,
 				55D935FA1A38A4F200AD1A1C /* TodayViewController.m in Sources */,
+				B5217F30244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */,
 				26C184DC1BA5DDA5001A8063 /* MMWormholeFileTransiting.m in Sources */,
 				26C184E81BA5DDA5001A8063 /* MMWormholeSessionFileTransiting.m in Sources */,
 			);
@@ -792,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5217F31244B2EEB00D811BC /* MMWormholeManifestFileTransiting.m in Sources */,
 				26C184E51BA5DDA5001A8063 /* MMWormholeSessionContextTransiting.m in Sources */,
 				55E647011B2659FB006ADC7F /* ExtensionDelegate.m in Sources */,
 				55E646FE1B2659FB006ADC7F /* InterfaceController.m in Sources */,
