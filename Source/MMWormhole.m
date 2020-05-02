@@ -179,7 +179,7 @@ void wormholeNotificationCallback(CFNotificationCenterRef center,
     NSString *identifier = [userInfo valueForKey:@"identifier"];
     
     if (identifier != nil) {
-#if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 )
+#if ( defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 && !TARGET_OS_SIMULATOR )
         if ([self.wormholeMessenger respondsToSelector:@selector(numberOfMessageItemsforIdentifier:)]) {
             NSInteger messageCount = [self.wormholeMessenger numberOfMessageItemsforIdentifier:identifier];
             for (int i = 0; i < messageCount; i++) {
