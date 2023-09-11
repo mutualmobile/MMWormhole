@@ -5,7 +5,6 @@ import PackageDescription
 let package = Package(
     name: "MMWormhole",
     platforms: [
-        .macOS(.v10_13),
         .iOS(.v11),
         .watchOS(.v2),
     ],
