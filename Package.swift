@@ -18,5 +18,8 @@ let package = Package(
         .target(
             name: "MMWormhole",
             path: "Source",
-            publicHeadersPath: "."),
+            publicHeadersPath: ".",
+            linkerSettings: [
+                .linkedFramework("WatchConnectivity", .when(platforms: [.iOS])),
+            ]),
     ])
