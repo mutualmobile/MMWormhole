@@ -19,6 +19,6 @@ let package = Package(
             path: "Source",
             publicHeadersPath: ".",
             linkerSettings: [
-                .linkedFramework("WatchConnectivity", .when(platforms: [.iOS])),
+                .linkedFramework("WatchConnectivity"),
             ]),
     ])
