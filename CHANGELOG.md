@@ -1,3 +1,7 @@
+##[2.1.0]
+**NEW**
+* Added Swift Package Manager support. (Eli Gutovsky)
+
 ##[2.0.0](https://github.com/mutualmobile/MMWormhole/milestones/2.0.0) (Tuesday, September 15th, 2015)
 **NEW**
 * Added support for the WatchConnectivity framework. (Conrad Stoll)

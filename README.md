@@ -41,6 +41,15 @@ pod 'MMWormhole', '~> 2.0.0'
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)<br/>
 MMWormhole also supports Carthage.
 
+
+### Swift Package Manager
+
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
+
+MMWormhole also supports Swift Package Manager. 
+In your Xcode project, go to the Package Dependencies tab of the project settings. Add a new package by clicking on the plus sign (+), then enter the URL for this repository.
+
+
 ## Overview
 
 MMWormhole is designed to make it easy to share very basic information and commands between an extension and it's containing application. The wormhole should remain stable whether the containing app is running or not, but notifications will only be triggered in the containing app if the app is awake in the background. This makes MMWormhole ideal for cases where the containing app is already running via some form of background modes. 
